@@ -1,0 +1,14 @@
+# robots.txt für www.projekt-traum.de
+# Erstellt: 2026-06-09
+
+User-agent: *
+Allow: /
+Disallow: /img/logo_email.png
+Disallow: /img/raum_1_social.jpg
+Disallow: /blog/uploads/
+Disallow: /blog/posts.json
+Disallow: /blog/save_post.php
+Disallow: /*.ffs_db
+
+# Sitemap
+Sitemap: https://www.projekt-traum.de/sitemap.xml

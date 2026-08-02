@@ -1,0 +1,1058 @@
+/* ==========================================================================
+   Design System & Root Variables
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --navy-deep: hsl(210, 60%, 8%);
+    --navy-medium: #102A43;
+    --gold-dark: #B89742;
+    --gold-light: #E3C67C;
+    --gold-gradient: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+    --accent-navy: linear-gradient(135deg, var(--navy-deep), var(--navy-medium));
+    
+    /* Backgrounds */
+    --cream-bg: #FAF9F6;
+    --cream-card: #FCFBFA;
+    --desk-bg: #0F0F16; /* Same dark grey/black background as buttons */
+    --desk-accent: radial-gradient(circle, rgba(184, 151, 66, 0.15) 0%, rgba(15, 15, 22, 0) 70%); /* Warm gold elegant ambient light */
+    
+    /* Typography */
+    --serif-font: 'Cormorant Garamond', serif;
+    --body-font: 'Inter', sans-serif;
+    
+    /* Ink/Text colors */
+    --text-dark: #1E2E3E;
+    --text-muted: #627D98;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hard: 0 20px 40px rgba(0, 0, 0, 0.3);
+    --book-shadow-left: -15px 10px 30px rgba(0,0,0,0.15);
+    --book-shadow-right: 15px 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   Base resets & App Container
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--desk-bg);
+    font-family: var(--body-font);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.ambient-light {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: var(--desk-accent);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Book Layout (3D Flipbook)
+   ========================================================================== */
+.book-container {
+    width: 960px;
+    height: 600px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Centering the book cover when closed front, and back when closed back */
+.book-container.closed-front {
+    transform: translateX(-240px);
+}
+
+.book-container.closed-back {
+    transform: translateX(240px);
+}
+
+.book {
+    width: 480px; /* One page width */
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+
+.leaf {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    pointer-events: none;
+}
+
+.leaf.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Enable pointer events only for active clickable pages */
+.leaf.active-next,
+.leaf.active-prev {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Page Sides: Front and Back */
+.page-side {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: var(--cream-bg);
+    padding: 50px 45px;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-side.front {
+    transform: rotateY(0deg);
+    z-index: 2;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1), inset 0 0 40px rgba(0, 0, 0, 0.04);
+}
+
+.page-side.back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1), inset 0 0 40px rgba(0, 0, 0, 0.04);
+}
+
+/* Spine shadow effects */
+.page-side.front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.page-side.back::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ensure text and content is above decorative elements */
+.page-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+.page-content > .dot-grid,
+.page-content > .accent-bar {
+    z-index: 0;
+}
+
+/* Specific layout adjustments for About Page (Page 2) */
+.about-page .page-content {
+    justify-content: flex-start;
+}
+
+.about-page .page-title {
+    margin-bottom: 30px; /* 30px gap below title as requested */
+}
+
+/* ==========================================================================
+   Decorative Accents
+   ========================================================================== */
+.dot-grid {
+    background-image: radial-gradient(var(--dot-color, #ccc) 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    width: 112px;
+    height: 112px;
+    position: absolute;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+.dot-grid.gold {
+    --dot-color: var(--gold-dark);
+}
+
+.dot-grid.gray {
+    --dot-color: hsl(210, 15%, 75%);
+}
+
+.top-right-dots { top: -20px; right: -15px; }
+.bottom-left-dots { bottom: -20px; left: -15px; }
+.top-left-dots { top: -20px; left: -15px; }
+.bottom-right-dots { bottom: -20px; right: -15px; }
+
+/* Accent Bars */
+.accent-bar {
+    position: absolute;
+    background: var(--gold-gradient);
+    pointer-events: none;
+}
+
+.gold-vertical-left { left: -45px; top: -50px; width: 6px; height: 120%; }
+.gold-vertical-right { right: -45px; top: -50px; width: 6px; height: 120%; }
+.gold-vertical-right-thick { right: -45px; top: -50px; width: 14px; height: 120%; }
+.gold-vertical-left-thick { left: -45px; top: -50px; width: 14px; height: 120%; }
+.gold-vertical-right-side { right: -20px; top: -50px; width: 6px; height: 120%; }
+.gold-vertical-left-side { left: -20px; top: -50px; width: 6px; height: 120%; }
+
+.navy-horizontal-top { top: -50px; left: -45px; height: 10px; width: 70%; background: var(--accent-navy); }
+.gold-horizontal-bottom { bottom: -50px; left: -45px; height: 6px; width: 60%; }
+.gold-horizontal-top { top: -50px; left: -45px; height: 6px; width: 120%; }
+.navy-horizontal-bottom { bottom: -50px; left: -45px; height: 10px; width: 120%; background: var(--accent-navy); }
+.navy-horizontal-bottom-wide { bottom: -50px; left: -45px; height: 14px; width: 120%; background: var(--accent-navy); }
+.navy-horizontal-top-wide { top: -50px; left: -45px; height: 14px; width: 120%; background: var(--accent-navy); }
+.gold-horizontal-top-right { top: -50px; right: -45px; height: 6px; width: 50%; }
+.navy-vertical-left-thick { left: -45px; top: -50px; width: 14px; height: 120%; background: var(--accent-navy); }
+.navy-horizontal-bottom-right { bottom: -50px; right: -45px; height: 10px; width: 70%; background: var(--accent-navy); }
+.navy-horizontal-top-right { top: -50px; right: -45px; height: 10px; width: 75%; background: var(--accent-navy); }
+
+/* ==========================================================================
+   Typography & Common Elements
+   ========================================================================== */
+.serif-title {
+    font-family: var(--serif-font);
+    font-weight: 700;
+    color: var(--navy-medium);
+    line-height: 1.1;
+}
+
+.serif-title .highlight {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-dark);
+}
+
+.section-subtitle {
+    font-family: var(--body-font);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.body-text {
+    font-family: var(--body-font);
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.page-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Image Placeholders */
+.image-container {
+    background-color: #ECEAE4;
+    border: 1px solid rgba(16,42,67,0.08);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border-radius: 2px;
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(184, 151, 66, 0.01) 0px,
+        rgba(184, 151, 66, 0.01) 12px,
+        rgba(16, 42, 67, 0.03) 12px,
+        rgba(16, 42, 67, 0.03) 24px
+    );
+}
+
+.placeholder-icon {
+    font-size: 20px;
+    opacity: 0.45;
+    margin-bottom: 6px;
+}
+
+.placeholder-text {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   Page Specific Styles
+   ========================================================================== */
+
+/* 1. Cover Page */
+.cover-page .cover-header h1 {
+    font-size: 38px;
+    margin-top: 20px;
+}
+
+.cover-hero {
+    height: 290px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.logo-emblem {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: absolute;
+    bottom: 50px;
+    left: -15px;
+    box-shadow: 0 4px 15px rgba(184, 151, 66, 0.3);
+}
+
+.website-link {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+}
+
+/* 2. About Page */
+.about-story {
+    margin-bottom: 30px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 25px;
+}
+
+.employment-timeline .timeline-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.employment-timeline .timeline-item .year {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy-medium);
+}
+
+.employment-timeline .timeline-desc strong {
+    font-size: 10px;
+    font-weight: 600;
+    display: block;
+    color: var(--text-dark);
+}
+
+/* 3. Studio Page */
+.studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(16,42,67,0.1);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.studio-name {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--navy-medium);
+}
+
+.est-year {
+    font-size: 12px;
+    color: var(--gold-dark);
+    font-style: italic;
+}
+
+.studio-intro {
+    margin-bottom: 20px;
+}
+
+.studio-hero {
+    flex-grow: 1;
+    min-height: 200px;
+}
+
+/* 4. Projects Layout 1 */
+.project-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    height: 100%;
+}
+
+.project-col-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy-medium);
+    margin-bottom: 20px;
+}
+
+.project-columns-grid .image-container.height-full {
+    height: 100%;
+    width: 100%;
+}
+
+/* 5. Projects Layout 2 */
+.layout-2-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.landscape-hero {
+    height: 240px;
+    width: 100%;
+}
+
+.columns-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* 6. Projects Layout 3 */
+.layout-3-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 25px;
+    height: 100%;
+}
+
+.narrow-left {
+    height: 100%;
+}
+
+.layout-3-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 7. Projects Layout 4 */
+.layout-4-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.offset-center {
+    height: 330px;
+    width: 85%;
+    margin: 0 auto;
+    transform: rotate(1deg);
+}
+
+.layout-4-text-bottom {
+    margin-top: 15px;
+}
+
+/* 8. Projects Layout 5 */
+.layout-5-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 25px;
+    height: 100%;
+}
+
+.layout-5-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-5-right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 100%;
+}
+
+.stacked-item {
+    height: 100%;
+}
+
+/* 9. Projects Layout 6 */
+.layout-6-content {
+    height: 100%;
+}
+
+.layout-6-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 25px;
+    height: 100%;
+}
+
+.layout-6-right-img {
+    position: relative;
+    height: 100%;
+}
+
+.grid-img-large {
+    width: 100%;
+    height: 70%;
+}
+
+.grid-img-small {
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+    width: 75%;
+    height: 40%;
+    z-index: 2;
+    border: 3px solid var(--cream-bg);
+}
+
+/* 10. Back Cover Page */
+.back-cover-page {
+    background-color: var(--cream-bg);
+}
+
+.back-cover-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+}
+
+.back-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--accent-navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 auto 30px;
+    box-shadow: var(--shadow-soft);
+}
+
+.back-cover-center h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   Navigation Controls UI
+   ========================================================================== */
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.control-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.control-btn:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.page-indicator {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#currentPage {
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.shortcuts-tip {
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.shortcuts-tip .key {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Mobile overrides)
+   ========================================================================== */
+@media (max-width: 990px) {
+    body {
+        display: block !important;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .app-container {
+        padding: 80px 15px 40px 15px; /* Leave space for the close button at the top */
+    }
+    
+    .book-container {
+        transform: none !important;
+        width: 100%;
+        height: auto;
+    }
+    
+    .book {
+        position: relative !important;
+        left: auto !important;
+        width: 100%;
+        max-width: 480px; /* Force single page size */
+        height: auto;
+        perspective: none;
+        transform: none !important;
+    }
+    
+    .leaf {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        transform-style: flat;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        pointer-events: auto;
+    }
+    
+    .page-side {
+        position: relative !important; /* Fixes positioning context for accent bars */
+        overflow: hidden !important;   /* Clips decorative bars neatly inside card */
+        width: 100%;
+        height: auto !important; /* Allow natural content height to avoid text clipping */
+        min-height: 480px;
+        transform: none !important;
+        backface-visibility: visible;
+        margin-bottom: 30px;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        padding: 30px 20px;
+    }
+    
+    .page-content {
+        flex-grow: 1;
+    }
+    
+    .accent-bar {
+        display: none !important; /* Hide decorative lines on mobile to prevent text overlay and alignment issues */
+    }
+    
+    .page-side.back {
+        transform: none !important;
+    }
+    
+    .page-side::after {
+        display: none !important; /* Hide spine shadows */
+    }
+    
+    .controls-container, 
+    .shortcuts-tip {
+        display: none !important; /* Hide navigation UI as users scroll */
+    }
+    
+    /* Layout adjustments for smartphone screens */
+    .about-grid,
+    .project-columns-grid,
+    .columns-two,
+    .layout-3-grid,
+    .layout-5-grid,
+    .layout-6-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        height: auto !important;
+    }
+
+    .project-columns-grid .image-container {
+        height: 160px !important;
+        width: 100% !important;
+    }
+
+    .narrow-left {
+        height: 180px !important;
+        width: 100% !important;
+    }
+
+    .landscape-hero {
+        height: 160px !important;
+    }
+
+    .offset-center {
+        height: 180px !important;
+        width: 100% !important;
+        transform: none !important;
+        margin: 10px 0 !important;
+    }
+
+    .layout-5-right {
+        grid-template-rows: auto auto !important;
+    }
+
+    .stacked-item {
+        height: 160px !important;
+    }
+
+    .layout-6-right-img {
+        height: 240px !important;
+        margin-top: 10px;
+    }
+
+    .grid-img-large {
+        height: 100% !important;
+    }
+
+    .grid-img-small {
+        height: 50% !important;
+        bottom: 0;
+        left: -10px !important;
+    }
+
+    /* Typography fixes for smartphones */
+    .serif-title {
+        font-size: 24px !important;
+    }
+
+    .cover-page .cover-header h1 {
+        font-size: 32px !important;
+        margin-top: 10px !important;
+    }
+
+    .cover-hero {
+        height: 200px !important;
+        margin-top: 10px !important;
+    }
+
+    .logo-emblem {
+        bottom: 20px !important;
+        left: 10px !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .back-logo {
+        margin: 0 auto 15px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .back-cover-center h3 {
+        font-size: 22px !important;
+    }
+
+    .page-title {
+        font-size: 24px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .body-text {
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+    }
+
+    .skills-bullet-list li {
+        font-size: 10.5px !important;
+    }
+
+    .personal-details-table td {
+        font-size: 11px !important;
+    }
+}
+
+/* Custom Scale Wrapper to increase presentation size by 25% */
+.book-scale-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: transform 0.3s ease;
+    margin: auto;
+}
+
+@media (min-width: 991px) {
+    .book-scale-wrapper {
+        transform-origin: center center;
+        margin: auto;
+    }
+}
+
+/* ==========================================================================
+   Blog Posts & Create Post Block
+   ========================================================================== */
+.fb-create-post {
+    background: #ffffff;
+    border: 1px solid rgba(16, 42, 67, 0.08);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.create-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-family: var(--body-font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy-medium);
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid var(--gold-light);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.comment-input, .comment-textarea {
+    width: 100%;
+    border: 1px solid rgba(16, 42, 67, 0.1);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: var(--body-font);
+    font-size: 11px;
+    margin-bottom: 8px;
+    background: var(--cream-card);
+    color: var(--text-dark);
+}
+
+.comment-input:focus, .comment-textarea:focus {
+    outline: none;
+    border-color: var(--gold-dark);
+    box-shadow: 0 0 0 2px rgba(184, 151, 66, 0.1);
+}
+
+.submit-btn {
+    background: var(--gold-gradient);
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    float: right;
+    transition: transform 0.2s;
+}
+.submit-btn:hover {
+    transform: translateY(-1px);
+}
+
+.fb-post {
+    background: #ffffff;
+    border: 1px solid rgba(16, 42, 67, 0.08);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--navy-medium);
+}
+
+.post-time {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.post-content {
+    font-family: var(--body-font);
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.post-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--text-muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(16, 42, 67, 0.05);
+    margin-bottom: 8px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+
+.action-btn:hover {
+    color: var(--gold-dark);
+}
+
+.action-btn.delete:hover {
+    color: #e53935;
+}

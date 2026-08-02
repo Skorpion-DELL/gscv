@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gregor Skrzeszewski - Interaktiver Blog (Flipbook)</title>
+
+    <!-- Google Fonts: Cormorant Garamond (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=2.0">
+
+    <style>
+        /* Specific enhancements for Gregor Skrzeszewski's profile content */
+        .skills-bullet-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .skills-bullet-list li {
+            font-family: var(--body-font);
+            font-size: 10px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .skills-bullet-list li::before {
+            content: "▪";
+            color: var(--gold-dark);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 10px;
+        }
+
+        .profile-img-frame {
+            width: 100%;
+            height: 190px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(16, 42, 67, 0.08);
+            border-radius: 2px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .personal-details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .personal-details-table td {
+            font-family: var(--body-font);
+            font-size: 10.5px;
+            padding: 4px 0;
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .personal-details-table td.label-cell {
+            font-weight: 500;
+            color: var(--text-dark);
+            width: 120px;
+        }
+
+        .pdf-download-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-gradient);
+            color: white;
+            text-decoration: none;
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(184, 151, 66, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pdf-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(184, 151, 66, 0.3);
+        }
+
+        .pdf-btn:active {
+            transform: translateY(1px);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Desk / Background container -->
+    <div class="app-container">
+
+        <!-- Background Ambient Lighting / Subtle details -->
+        <div class="ambient-light"></div>
+
+        <!-- Scale Wrapper for desktop resizing -->
+        <div class="book-scale-wrapper">
+            <!-- Main Book Wrapper -->
+            <div class="book-container">
+                <div class="book" id="book">
+
+                    <!-- LEAF 1 -->
+                    <div class="leaf" id="leaf1" style="z-index: 10;">
+                        <!-- FRONT: Cover Page -->
+                        <div class="page-side front cover-page">
+                            <div class="page-content">
+                                <!-- Dot Grid Decor -->
+                                <div class="dot-grid gold top-right-dots"></div>
+                                <div class="dot-grid gray bottom-left-dots"></div>
+
+                                <!-- Gold accent bars -->
+                                <div class="accent-bar gold-vertical-left"></div>
+                                <div class="accent-bar navy-horizontal-top"></div>
+                                <div class="accent-bar gold-horizontal-bottom"></div>
+
+                                <div class="cover-header">
+                                    <h1 class="serif-title">Gregor<br><span class="highlight">Skrzeszewski</span></h1>
+                                    <p class="section-subtitle" style="margin-top: 15px;">PROJEKT-TRAUM BLOG</p>
+                                </div>
+
+                                <!-- Large Image -->
+                                <div class="image-container cover-hero">
+                                    <img src="../img/raum_1.jpg" alt="Referenzprojekt Innenausbau">
+                                </div>
+
+                                <!-- Circle Emblem (Logo) -->
+                                <div class="logo-emblem"
+                                    style="background: #ffffff; border: 2px solid var(--gold-dark); padding: 5px; overflow: hidden;">
+                                    <img src="img/logo_projekt_hd_transparent.png" alt="Projekt Traum Logo"
+                                        style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+
+                                <div class="cover-footer">
+                                    <span class="website-link">WWW.PROJEKT-TRAUM.DE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BACK: About Me Page -->
+                        <div class="page-side back about-page">
+                            <div class="page-content">
+                                <div class="dot-grid gray top-right-dots"></div>
+                                <div class="dot-grid gold bottom-left-dots"></div>
+                                <div class="accent-bar gold-vertical-left"></div>
+                                <div class="accent-bar navy-vertical-right"></div>
+
+                                <h2 class="serif-title page-title">Hallo auf meinem Blog...</h2>
+                                <div class="about-story" style="margin-bottom: 20px;">
+                                    <h4 class="section-subtitle">MOTTO</h4>
+                                    <p class="body-text text-justify" style="margin-bottom: 8px;">
+                                       ... es geht um Gestaltung, Neuheiten und die Möglichkeiten,
+                                       die moderne Materialien für die Innenausstattung bieten.
+                                       Ich werde darauf eingehen, dass Schönes und Praktisches nicht teuer sein muss,
+                                       aber auch technische Neuheiten im Bereich Heizung sowie den Einsatz von IT- und KI-Lösungen thematisieren.
+                                       Viel Spaß beim Lesen.
+                                    </p>
+                                </div>
+                                
+                                <!-- Create Post Block -->
+                                <div class="fb-create-post" style="width: 100%; text-align: left; margin-top: 20px;">
+                                    <div class="create-header">
+                                        <div class="avatar"><img src="img/logo_projekt_hd_transparent.png" alt="Logo"></div>
+                                        <span>Schreibe einen Kommentar...</span>
+                                    </div>
+                                    <input type="text" id="new-post-author" class="comment-input" placeholder="Gib deinen Nicknamen ein (z. B. Anonym)">
+                                    <textarea id="new-post-content" class="comment-textarea" placeholder="Sag laut, was du denkst... (öffentlich)" rows="3"></textarea>
+                                    <button class="submit-btn" id="submit-new-post-btn">Posten</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LEAF 2 -->                    
+
+                    <!-- LEAF 3 -->
+                    
+                    <!-- LEAF 4 -->
+                    <div class="leaf" id="leaf4" style="z-index: 7;">
+                        <!-- FRONT: Project Detail 4 (Insulation and Planning) -->
+                        <div class="page-side front projects-layout-4">
+                            <div class="page-content">
+                                <div class="dot-grid gold top-right-dots"></div>
+                                <div class="dot-grid gray bottom-left-dots"></div>
+                                <div class="accent-bar gold-vertical-right-side"></div>
+                                <div class="accent-bar navy-horizontal-bottom-wide"></div>
+                                
+                            </div>
+                        </div>
+
+                        <!-- BACK: Back Cover (Contact Details) -->
+                        <div class="page-side back back-cover-page">
+                            <div class="page-content">
+                                
+                                <!-- Dot Grid Decor -->
+                                <div class="dot-grid gray top-left-dots"></div>
+                                <div class="dot-grid gold bottom-right-dots"></div>
+
+                                <!-- Gold accent bars -->
+                                <div class="accent-bar gold-vertical-right"></div>
+                                <div class="accent-bar navy-horizontal-bottom"></div>
+                                <div class="accent-bar gold-horizontal-top"></div>
+
+                                <div class="back-cover-center">
+                                    <div class="back-logo"
+                                        style="background: #ffffff; border: 2px solid var(--gold-dark); padding: 4px; width: 60px; height: 60px; overflow: hidden;">
+                                        <img src="img/logo_projekt_hd_transparent.png" alt="Projekt Traum Logo"
+                                            style="width: 100%; height: 100%; object-fit: contain;">
+                                    </div>
+                                    <h3 class="serif-title" style="font-size: 26px; margin-bottom: 10px;">Gregor
+                                        Skrzeszewski</h3>
+                                    <p class="section-subtitle" style="margin-bottom: 25px;">Projekt Traum</p>
+
+                                    <div
+                                        style="display: flex; flex-direction: column; gap: 10px; font-family: var(--body-font); font-size: 11px; align-items: center; color: var(--text-muted);">
+                                        <div>📧 <a href="mailto:gregor.skrzeszewski@projekt-traum.de"
+                                                style="color: var(--text-muted); text-decoration: none; font-weight: 500;">gregor.skrzeszewski@projekt-traum.de</a>
+                                        </div>
+                                        <div>📞 <a href="tel:+4916099657999"
+                                                style="color: var(--text-muted); text-decoration: none; font-weight: 500;">+49
+                                                160 99657999</a></div>
+                                        <div>📍 Edith-Stein-Anlage 16, 53123 Bonn</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Controls overlay -->
+            <div class="controls-container">
+                <button id="prevBtn" class="control-btn" disabled>
+                    <span class="arrow">&larr;</span> Zurück
+                </button>
+
+                <div class="page-indicator">
+                    Seite <span id="currentPage">1</span> von <span id="totalPages">100</span>
+                </div>
+
+                <button id="nextBtn" class="control-btn">
+                    Weiter <span class="arrow">&rarr;</span>
+                </button>
+            </div>
+
+            <!-- Keyboard shortcuts tip -->
+            <div class="shortcuts-tip">
+                Tipp: Sie können die Tasten <span class="key">&larr;</span> und <span class="key">&rarr;</span> auf
+                Ihrer Tastatur verwenden oder direkt auf die Seiten klicken, um umzublättern.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="js/script.js?v=1.4"></script>
+</body>
+
+</html>

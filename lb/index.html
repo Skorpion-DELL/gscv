@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gregor Skrzeszewski - Interaktives Portfolio (Flipbook)</title>
+    
+    <!-- Google Fonts: Cormorant Garamond (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=2.0">
+    
+    <style>
+        /* Specific enhancements for Gregor Skrzeszewski's profile content */
+        .skills-bullet-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .skills-bullet-list li {
+            font-family: var(--body-font);
+            font-size: 10px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            padding-left: 14px;
+            position: relative;
+        }
+        .skills-bullet-list li::before {
+            content: "▪";
+            color: var(--gold-dark);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 10px;
+        }
+        .profile-img-frame {
+            width: 100%;
+            height: 190px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(16,42,67,0.08);
+            border-radius: 2px;
+            box-shadow: var(--shadow-soft);
+        }
+        .personal-details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .personal-details-table td {
+            font-family: var(--body-font);
+            font-size: 10.5px;
+            padding: 4px 0;
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+        .personal-details-table td.label-cell {
+            font-weight: 500;
+            color: var(--text-dark);
+            width: 120px;
+        }
+        .pdf-download-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-gradient);
+            color: white;
+            text-decoration: none;
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(184, 151, 66, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .pdf-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(184, 151, 66, 0.3);
+        }
+        .pdf-btn:active {
+            transform: translateY(1px);
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Desk / Background container -->
+    <div class="app-container">
+        
+        <!-- Background Ambient Lighting / Subtle details -->
+        <div class="ambient-light"></div>
+        
+        <!-- Scale Wrapper for desktop resizing -->
+        <div class="book-scale-wrapper">
+            <!-- Main Book Wrapper -->
+            <div class="book-container">
+            <div class="book" id="book">
+                
+                <!-- LEAF 1 -->
+                <div class="leaf" id="leaf1" style="z-index: 10;">
+                    <!-- FRONT: Cover Page -->
+                    <div class="page-side front cover-page">
+                        <div class="page-content">
+                            <!-- Dot Grid Decor -->
+                            <div class="dot-grid gold top-right-dots"></div>
+                            <div class="dot-grid gray bottom-left-dots"></div>
+                            
+                            <!-- Gold accent bars -->
+                            <div class="accent-bar gold-vertical-left"></div>
+                            <div class="accent-bar navy-horizontal-top"></div>
+                            <div class="accent-bar gold-horizontal-bottom"></div>
+                            
+                            <div class="cover-header">
+                                <h1 class="serif-title">Gregor<br><span class="highlight">Skrzeszewski</span></h1>
+                                <p class="section-subtitle" style="margin-top: 15px;">Lebenslauf</p>
+                            </div>
+                            
+                            <!-- Large Image -->
+                            <div class="image-container cover-hero">
+                                <img src="../img/raum_1.jpg" alt="Referenzprojekt Innenausbau">
+                            </div>
+                            
+                            <!-- Circle Emblem (Logo) -->
+                            <div class="logo-emblem" style="background: #ffffff; border: 2px solid var(--gold-dark); padding: 5px; overflow: hidden;">
+                                <img src="img/logo_projekt_hd_transparent.png" alt="Projekt Traum Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                            </div>
+                            
+                            <div class="cover-footer">
+                                <span class="website-link">WWW.PROJEKT-TRAUM.DE</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BACK: About Me Page -->
+                    <div class="page-side back about-page">
+                        <div class="page-content">
+                            <div class="dot-grid gray top-right-dots"></div>
+                            <div class="accent-bar gold-vertical-left"></div>
+                            <div class="accent-bar navy-vertical-right"></div>
+                            
+                            <h2 class="serif-title page-title">Über mich</h2>
+                            
+                            <div class="about-story" style="margin-bottom: 20px;">
+                                <h4 class="section-subtitle">ERFAHRUNG &amp; ENGAGEMENT</h4>
+                                <p class="body-text text-justify" style="margin-bottom: 8px;">
+                                    Mit über 20 Jahren praktischer Erfahrung im Innenausbau und einem breiten Spektrum an technischen Qualifikationen möchte ich Ihr Team tatkräftig verstärken und zum Wachstum Ihres Unternehmens beitragen. Ob präzise Trockenbaukonstruktionen, anspruchsvolle Fliesenarbeiten oder professionelle Maler- und Spachtelarbeiten – ich garantiere eine saubere, normgerechte und termingetreue Ausführung.
+                                </p>
+                            </div>
+                            
+                            <div class="about-grid">
+                                <!-- Employment Timeline -->
+                                <div class="employment-timeline">
+                                    <h4 class="section-subtitle">WERDEGANG</h4>
+                                    <div class="timeline-item" style="margin-bottom: 10px;">
+                                        <span class="year font-serif" style="font-size: 12px; min-width: 65px; display: inline-block;">Seit 10/24</span>
+                                        <div class="timeline-desc">
+                                            <strong>Berufliche Neuorientierung</strong>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item" style="margin-bottom: 10px;">
+                                        <span class="year font-serif" style="font-size: 12px; min-width: 65px; display: inline-block;">2018–2024</span>
+                                        <div class="timeline-desc">
+                                            <strong>Fliesenleger &amp; Trockenbauer</strong>
+                                            <p class="body-text" style="font-size: 9px;">Selbstständiger Unternehmer, Bonn</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item" style="margin-bottom: 10px;">
+                                        <span class="year font-serif" style="font-size: 12px; min-width: 65px; display: inline-block;">2016–2018</span>
+                                        <div class="timeline-desc">
+                                            <strong>Maler- &amp; Tapezierer</strong>
+                                            <p class="body-text" style="font-size: 9px;">Firma L. Schneider, Bonn</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Qualifizierungsprofil Section -->
+                                <div class="skills-section">
+                                    <h4 class="section-subtitle">PROFIL</h4>
+                                    <ul class="skills-bullet-list">
+                                        <li>Baustellen-Vorbereitung &amp; Koordination</li>
+                                        <li>Langjährige Praxis im Innenausbau</li>
+                                        <li>Trockenbau &amp; Beleuchtungssysteme</li>
+                                        <li>Maler-, Spachtel- &amp; Tapezierarbeiten</li>
+                                        <li>Fliesen-, Laminat- &amp; Bodenverlegung</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEAF 2 -->
+                <div class="leaf" id="leaf2" style="z-index: 9;">
+                    <!-- FRONT: Gregor Skrzeszewski Profile -->
+                    <div class="page-side front studio-page">
+                        <div class="page-content">
+                            <div class="dot-grid gold bottom-left-dots"></div>
+                            <div class="accent-bar gold-vertical-right-thick"></div>
+                            <div class="accent-bar navy-horizontal-bottom-wide"></div>
+                            
+                            <div class="studio-header">
+                                <h3 class="studio-name" style="font-size: 14px; font-family: var(--serif-font); font-weight: 700;">GREGOR SKRZESZEWSKI</h3>
+                                <span class="est-year font-serif">Geb. 1976</span>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: start; margin-bottom: 15px;">
+                                <!-- Profile image -->
+                                <div class="profile-img-frame" style="background-image: url('../img/zdjecie_2.png'); width: 100px; height: 135px; border-radius: 4px;"></div>
+                                
+                                <div class="studio-intro" style="margin-bottom: 0;">
+                                    <h4 class="section-subtitle" style="margin-top: 5px;">Persönliche Daten</h4>
+                                    <table class="personal-details-table">
+                                        <tr>
+                                            <td class="label-cell">Geburtsort:</td>
+                                            <td>Danzig / Polen</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-cell">Staatsangehörigkeit:</td>
+                                            <td>Polnisch</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-cell">Familienstand:</td>
+                                            <td>Verheiratet, 1 Kind</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="qualifications-block" style="margin-bottom: 10px;">
+                                <h4 class="section-subtitle">Ausbildung &amp; EDV</h4>
+                                <table class="personal-details-table" style="margin-top: 0;">
+                                    <tr>
+                                        <td class="label-cell">Ausbildung:</td>
+                                        <td>Berufsschule der Marine<br><span style="font-size: 9px; color: var(--text-muted);">Abschluss: Schiffsmaschinenmonteur (1995)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-cell">EDV-Kenntnisse:</td>
+                                        <td>MS Office, IT-Systemintegration</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label-cell">Sprachen:</td>
+                                        <td>Deutsch (A2), Polnisch (Muttersprache)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <!-- PDF Download Button -->
+                            <div class="pdf-download-container">
+                                <a href="../img/Bewerbung_Gregor_Skrzeszewski.pdf" class="pdf-btn" target="_blank">
+                                    📄 Bewerbungs-PDF herunterladen
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BACK: Projects Layout 1 (Drywall & Lighting) -->
+                    <div class="page-side back projects-layout-1">
+                        <div class="page-content">
+                            <div class="dot-grid gray top-right-dots"></div>
+                            <div class="accent-bar gold-horizontal-top-right"></div>
+                            <div class="accent-bar navy-vertical-left-thick"></div>
+                            
+                            <h2 class="serif-title page-title">Referenzen</h2>
+                            
+                            <div class="project-columns-grid">
+                                <!-- Col 1: Text -->
+                                <div class="project-col-text">
+                                    <h4 class="section-subtitle">SCHWERPUNKT</h4>
+                                    <p class="client-name">Trockenbau &amp; Licht</p>
+                                    
+                                    <h4 class="section-subtitle">Ausführung</h4>
+                                    <p class="body-text">
+                                        Montage und Ausführung von Trockenbaukonstruktionen, einschließlich Wänden und Decken mit speziellen Beleuchtungssystemen.
+                                    </p>
+                                    <p class="body-text" style="margin-top: 8px;">
+                                        Präzise Verkleidungen und funktionelle Deckenabhängungen für gehobenes Wohnraumklima.
+                                    </p>
+                                </div>
+                                
+                                <!-- Col 2: Image 2 -->
+                                <div class="project-col-img-1">
+                                    <div class="image-container height-full">
+                                        <img src="../img/raum_2.jpeg" alt="Trockenbau Decke Beleuchtung">
+                                    </div>
+                                </div>
+                                
+                                <!-- Col 3: Image 3 -->
+                                <div class="project-col-img-2">
+                                    <div class="image-container height-full">
+                                        <img src="../img/raum_3.jpg" alt="Innenausbau Flur">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEAF 3 -->
+                <div class="leaf" id="leaf3" style="z-index: 8;">
+                    <!-- FRONT: Projects Layout 2 (Floor & Tiling) -->
+                    <div class="page-side front projects-layout-2">
+                        <div class="page-content">
+                            <div class="dot-grid gold top-right-dots"></div>
+                            <div class="accent-bar navy-horizontal-top-wide"></div>
+                            <div class="accent-bar gold-vertical-right-side"></div>
+                            
+                            <h2 class="serif-title page-title">Referenzen</h2>
+                            
+                            <div class="layout-2-content">
+                                <!-- Top Landscape Image -->
+                                <div class="image-container landscape-hero">
+                                    <img src="../img/raum_1.jpg" alt="Fliesenverlegung Raum">
+                                </div>
+                                
+                                <h4 class="section-subtitle text-center">BODEN- &amp; FLIESENARBEITEN</h4>
+                                
+                                <div class="columns-two">
+                                    <p class="body-text text-justify">
+                                        Durchführung professioneller Renovierungs- und Reparaturarbeiten, darunter das Spachteln von Wänden und Decken, Streichen, Tapezieren sowie Verlegung hochwertiger Keramikfliesen.
+                                    </p>
+                                    <p class="body-text text-justify">
+                                        Fachgerechtes Verlegen von Laminat- und Parkettböden mit sauberer Fugenausrichtung, Trittschalldämmung und passenden Sockelleisten.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BACK: Project Detail 3 (Technical Qualifications) -->
+                    <div class="page-side back projects-layout-3">
+                        <div class="page-content">
+                            <div class="dot-grid gray bottom-left-dots"></div>
+                            <div class="accent-bar gold-vertical-left-thick"></div>
+                            <div class="accent-bar navy-horizontal-bottom-right"></div>
+                            
+                            <div class="layout-3-grid">
+                                <!-- Left Narrow Image -->
+                                <div class="image-container narrow-left">
+                                    <img src="../img/raum_5.jpg" alt="Elektrik Sanierung">
+                                </div>
+                                
+                                <!-- Right Text -->
+                                <div class="layout-3-text">
+                                    <h4 class="section-subtitle">GEWERKEÜBERGREIFEND</h4>
+                                    <p class="body-text text-justify">
+                                        Dank meiner zusätzlichen Qualifikationen in den Bereichen Elektrotechnik (bis 1 kV), Schweißtechnik sowie Gas- und Wärmeanlagenbau kann ich schnittstellenübergreifend denken.
+                                    </p>
+                                    <p class="body-text text-justify" style="margin-top: 8px;">
+                                        Ich erkenne potenzielle Installationsprobleme auf der Baustelle im Vorfeld und erarbeite lösungsorientierte Kompromisse mit Statikern und Bauleitern.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEAF 4 -->
+                <div class="leaf" id="leaf4" style="z-index: 7;">
+                    <!-- FRONT: Project Detail 4 (Insulation and Planning) -->
+                    <div class="page-side front projects-layout-4">
+                        <div class="page-content">
+                            <div class="dot-grid gold top-right-dots"></div>
+                            <div class="accent-bar gold-vertical-left-side"></div>
+                            <div class="accent-bar navy-horizontal-bottom-wide"></div>
+                            
+                            <div class="layout-4-content">
+                                <!-- Center Offset Image -->
+                                <div class="image-container offset-center">
+                                    <img src="../img/raum_6.jpg" alt="Renovierung Trockenbauwand">
+                                </div>
+                                
+                                <div class="layout-4-text-bottom">
+                                    <h4 class="section-subtitle text-center">PLANUNG &amp; BAUTENSCHUTZ</h4>
+                                    <p class="body-text text-center">
+                                        Professionelle Beratung beim Einkauf geeigneter Materialien, Vorbereitung der Baustelle sowie Einbau moderner Dämmstoffe zur Gewährleistung von Wärme-, Wind-, Brand- und Schallschutz.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BACK: Back Cover (Contact Details) -->
+                    <div class="page-side back back-cover-page">
+                        <div class="page-content">
+                            <!-- Dot Grid Decor -->
+                            <div class="dot-grid gray top-left-dots"></div>
+                            <div class="dot-grid gold bottom-right-dots"></div>
+                            
+                            <!-- Gold accent bars -->
+                            <div class="accent-bar gold-vertical-right"></div>
+                            <div class="accent-bar navy-horizontal-bottom"></div>
+                            <div class="accent-bar gold-horizontal-top"></div>
+                            
+                            <div class="back-cover-center">
+                                <div class="back-logo" style="background: #ffffff; border: 2px solid var(--gold-dark); padding: 4px; width: 60px; height: 60px; overflow: hidden;">
+                                    <img src="img/logo_projekt_hd_transparent.png" alt="Projekt Traum Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                                </div>
+                                <h3 class="serif-title" style="font-size: 26px; margin-bottom: 10px;">Gregor Skrzeszewski</h3>
+                                <p class="section-subtitle" style="margin-bottom: 25px;">Projekt Traum</p>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--body-font); font-size: 11px; align-items: center; color: var(--text-muted);">
+                                    <div>📧 <a href="mailto:gregor.skrzeszewski@projekt-traum.de" style="color: var(--text-muted); text-decoration: none; font-weight: 500;">gregor.skrzeszewski@projekt-traum.de</a></div>
+                                    <div>📞 <a href="tel:+4916099657999" style="color: var(--text-muted); text-decoration: none; font-weight: 500;">+49 160 99657999</a></div>
+                                    <div>📍 Edith-Stein-Anlage 16, 53123 Bonn</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Controls overlay -->
+        <div class="controls-container">
+            <button id="prevBtn" class="control-btn" disabled>
+                <span class="arrow">&larr;</span> Zurück
+            </button>
+            
+            <div class="page-indicator">
+                Seite <span id="currentPage">1</span> von <span id="totalPages">8</span>
+            </div>
+            
+            <button id="nextBtn" class="control-btn">
+                Weiter <span class="arrow">&rarr;</span>
+            </button>
+        </div>
+        
+        <!-- Keyboard shortcuts tip -->
+        <div class="shortcuts-tip">
+            Tipp: Sie können die Tasten <span class="key">&larr;</span> und <span class="key">&rarr;</span> auf Ihrer Tastatur verwenden oder direkt auf die Seiten klicken, um umzublättern.
+        </div>
+        
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="js/script.js?v=1.4"></script>
+</body>
+</html>
