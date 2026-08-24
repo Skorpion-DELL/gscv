@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WD My Cloud - Caddy Web Server & Docker</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --card-border: #30363d;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --accent: #238636;
+            --accent-hover: #2ea043;
+            --blue: #58a6ff;
+            --code-bg: #0b0e14;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(35, 134, 54, 0.2);
+            color: #3fb950;
+            border: 1px solid #238636;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--blue);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #3fb950;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #3fb950;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+
+        .full-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .full-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9rem;
+            color: #79c0ff;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        code {
+            font-family: inherit;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge"><span class="status-dot"></span> Serwer aktywny</span>
+            <h1>WD My Cloud EX2 Ultra</h1>
+            <p class="subtitle">Środowisko hostingowe Caddy & Docker na Dysku 1 zainstalowane pomyślnie!</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Caddy Web Server</h2>
+                <ul>
+                    <li><strong>Status:</strong> Aktywny (port :8080)</li>
+                    <li><strong>Katalog WWW:</strong> <code>/mnt/HD/HD_a2/Public/www/</code></li>
+                    <li><strong>Konfiguracja:</strong> <code>/mnt/HD/HD_a2/caddy/Caddyfile</code></li>
+                    <li><strong>Certyfikaty / Dane:</strong> Dysk 1 (trwały)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Docker Engine</h2>
+                <ul>
+                    <li><strong>Status:</strong> Aktywny (19.03.8)</li>
+                    <li><strong>Architektura:</strong> ARMv7 (Armada 385)</li>
+                    <li><strong>Katalog danych:</strong> <code>/mnt/HD/HD_a2/docker/data/</code></li>
+                    <li><strong>Tryb sieci:</strong> Host Networking</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="full-card">
+            <h2>Jak zarządzać stroną WWW?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Możesz umieszczać swoje pliki HTML, CSS, JavaScript i grafiki bezpośrednio w folderze:</p>
+            <pre><code>/mnt/HD/HD_a2/Public/www/</code></pre>
+            <p style="color: var(--text-muted);">Folder ten jest również dostępny w Twojej sieci lokalnej jako udział sieciowy Samba (SMB): <strong><code>\\192.168.2.200\Public\www\</code></strong>.</p>
+        </div>
+
+        <div class="full-card">
+            <h2>Przydatne polecenia SSH</h2>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Stan usług i zarządzanie:</p>
+            <pre><code># Sprawdzenie stanu Dockera i Caddy
+mycloud-services status
+
+# Restart / Start / Stop
+mycloud-services restart
+mycloud-services start
+mycloud-services stop</code></pre>
+
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Uruchamianie kontenerów w Dockerze (zalecane obrazy arm32v6/arm32v7 z siecią hosta):</p>
+            <pre><code># Przykładowy kontener testowy
+docker run --rm --net=host arm32v7/debian:buster-slim cat /etc/os-release</code></pre>
+        </div>
+
+        <footer>
+            WD My Cloud EX2 Ultra &bull; Caddy Web Server &bull; Dysk 1 Persistent Storage
+        </footer>
+    </div>
+</body>
+</html>

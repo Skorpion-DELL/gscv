@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +10,10 @@
          SEO — Grundlegende Meta-Tags
     ═══════════════════════════════════════════════════════════ -->
     <title>Projekt Traum Bonn – Fachkompetenz im Innenausbau</title>
-    <meta name="description" content="Projekt Traum in Bonn: Fachkompetenz im Innenausbau. Ihr Partner für Raumgestaltung im Raum Bonn/Köln.">
-    <meta name="keywords" content="Projekt Traum, Innenausbau, Trockenbau, IT-Integration, Bonn, Köln, Lebenslauf, Portfolio, Blog">
+    <meta name="description"
+        content="Projekt Traum in Bonn: Fachkompetenz im Innenausbau. Ihr Partner für Raumgestaltung im Raum Bonn/Köln.">
+    <meta name="keywords"
+        content="Projekt Traum, Innenausbau, Trockenbau, IT-Integration, Bonn, Köln, Lebenslauf, Portfolio, Blog">
     <meta name="author" content="Gregor Skrzeszewski">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.projekt-traum.de/">
@@ -22,7 +25,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.projekt-traum.de/">
     <meta property="og:title" content="Projekt Traum Bonn – Fachkompetenz im Innenausbau">
-    <meta property="og:description" content="Projekt Traum in Bonn: Fachkompetenz im Innenausbau. Ihr Partner für Raumgestaltung im Raum Bonn/Köln.">
+    <meta property="og:description"
+        content="Projekt Traum in Bonn: Fachkompetenz im Innenausbau. Ihr Partner für Raumgestaltung im Raum Bonn/Köln.">
     <meta property="og:image" content="https://www.projekt-traum.de/img/logo_gold_navy_transparent.png">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="1024">
@@ -35,7 +39,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@_Projekt_Traum">
     <meta name="twitter:title" content="Projekt Traum Bonn – Fachkompetenz im Innenausbau">
-    <meta name="twitter:description" content="Projekt Traum in Bonn: Fachkompetenz im Innenausbau. Ihr Partner für Raumgestaltung im Raum Bonn/Köln.">
+    <meta name="twitter:description"
+        content="Projekt Traum in Bonn: Fachkompetenz im Innenausbau. Ihr Partner für Raumgestaltung im Raum Bonn/Köln.">
     <meta name="twitter:image" content="https://www.projekt-traum.de/img/logo_gold_navy_transparent.png">
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -106,23 +111,19 @@
          CSS laden
     ═══════════════════════════════════════════════════════════ -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Kaushan+Script&family=Kolker+Brush&family=Rock+Salt&family=Water+Brush&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Kaushan+Script&family=Kolker+Brush&family=Rock+Salt&family=Water+Brush&display=swap">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="css/tooplate-style.css?v=8.6">
 
     <script>
         document.documentElement.classList.add("js");
-        if (/firefox|fxios/i.test(navigator.userAgent)) {
-            document.documentElement.classList.add("is-firefox");
-        }
-        var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};
-        supportsCssVars()||alert("Please view this in a modern browser such as latest version of Chrome or Microsoft Edge.");
     </script>
 
-    <meta name="p:domain_verify" content="b04f47b0f57ad486f9653585c770989e"/>
+    <meta name="p:domain_verify" content="b04f47b0f57ad486f9653585c770989e" />
 
 </head>
 
@@ -130,17 +131,30 @@
     <!-- Interactive Book Overlay (Lebenslauf - CV_4) -->
     <div id="book-overlay">
         <button id="close-book-overlay" title="Schließen"><i class="fas fa-times"></i></button>
-        <iframe src="lb/index.html?v=2.1" title="Lebenslauf"></iframe>
+        <iframe src="lb/index.html?v=3.1" title="Lebenslauf"></iframe>
     </div>
 
     <!-- Interactive Blog Overlay (Blog) -->
     <div id="blog-overlay">
         <button id="close-blog-overlay" title="Schließen"><i class="fas fa-times"></i></button>
-        <iframe src="blog/index.html?v=2.1" title="Blog"></iframe>
+        <iframe src="blog/index.html?v=3.0" title="Blog"></iframe>
 
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════════
+         OPCJONALNE TŁO HTML (IFRAME)
+         Aby użyć pliku .html (np. interaktywnego tła animowanego) jako tła strony:
+         1. Odkomentuj poniższy wiersz iframe z plikiem tła (np. img/antigravity_wallpaper.html).
+         2. Jeśli chcesz, by tło HTML było w pełni widoczne, zmniejsz krycie lub wyłącz domyślne tło #tm-bg w CSS (np. opacity: 0).
+    ═══════════════════════════════════════════════════════════ -->
+    <!-- <iframe id="html-bg-frame" src="img/antigravity_wallpaper.html" title="HTML Background"></iframe> -->
+
     <div id="tm-bg"></div>
+    <!-- 3D Model Image - Pozycjonowany niezależnie na tapecie (pod treścią strony) -->
+    <div class="tm-3d-model-container">
+        <img src="img/3d_model_AI.svg" class="tm-3d-model-img" alt="3D Model">
+    </div>
+
     <div id="tm-wrap">
         <div class="tm-main-content">
             <div class="container-fluid tm-site-header-container">
@@ -149,12 +163,13 @@
                         <div class="tm-header-flex-container">
                             <header class="tm-site-header mb-4">
                                 <h1 class="mb-4">Gregor<br>Skrzeszewski</h1>
-                                <img src="img/underline.png" class="img-fluid mb-4 img-gold-filter" alt="dekorative goldene Unterstreichung" title="dekorative goldene Unterstreichung">
+                                <img src="img/underline.png" class="img-fluid mb-4 img-gold-filter"
+                                    alt="dekorative goldene Unterstreichung" title="dekorative goldene Unterstreichung">
                                 <p>Projektmanagement<br>Fachkompetenz im Innenausbau</p>
                             </header>
-                            
+
                             <div class="projekt-traum"><span class="brush-slip"></span></div>
-                            
+
                             <div class="tm-photo-banner mb-4">
                                 <div class="slideshow-container">
                                     <div class="slide"></div>
@@ -168,35 +183,68 @@
                     <div class="col-12 col-md-5 tm-site-header-col-right">
                         <main class="content">
                             <div class="grid">
-                                
+
                                 <!-- BLOG GRID ITEM -->
                                 <section class="grid__item" id="blog-link">
                                     <div class="product" title="Blog">
                                         <div class="tm-nav-link">
                                             <i class="fas fa-newspaper fa-3x tm-nav-icon"></i>
                                             <span class="tm-nav-text">Blog</span>
-                                            <div class="product__bg"></div>        
-                                        </div>                                    
+                                            <div class="product__bg"></div>
+                                        </div>
                                         <div class="product__description">
                                             <div class="p-sm-4 p-3">
                                                 <div class="row mb-3">
                                                     <div class="col-12">
-                                                        <h2 class="tm-page-title">Blog &amp; Aktuelles</h2>        
+                                                        <h2 class="tm-page-title">Blog &amp; Aktuelles</h2>
                                                     </div>
-                                                </div>                                        
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="blog-post mb-4 pb-4 border-bottom-glass">
-                                                            <h3 class="h4 text-accent-title mb-2">Moderner Innenausbau: Lichtvouten &amp; LED-Beleuchtung im Trockenbau</h3>
-                                                            <p class="small text-muted mb-2"><i class="far fa-calendar-alt mr-2"></i> Juni 2026</p>
-                                                            <p class="blog-text">Die Kombination aus präzisem Trockenbau und moderner Lichttechnik schafft eine einzigartige Raumatmosphäre. Durch abgehängte Decken mit integrierten Lichtvouten lassen sich Räume optisch vergrößern und stimmungsvoll ausleuchten. Bei meinen Projekten lege ich besonderen Wert auf exakte Spachtelarbeiten (Qualitätsstufen Q3/Q4), da indirektes Streiflicht jede Unebenheit sichtbar machen würde.</p>
+                                                            <h3 class="h4 text-accent-title mb-2">Moderner
+                                                                Innenausbau:
+                                                                Lichtvouten &amp; LED-Beleuchtung im Trockenbau
+                                                            </h3>
+                                                            <p class="small text-muted mb-2"><i
+                                                                    class="far fa-calendar-alt mr-2"></i> Juni
+                                                                2026</p>
+                                                            <p class="blog-text">Die Kombination aus präzisem
+                                                                Trockenbau
+                                                                und moderner Lichttechnik schafft eine
+                                                                einzigartige
+                                                                Raumatmosphäre. Durch abgehängte Decken mit
+                                                                integrierten
+                                                                Lichtvouten lassen sich Räume optisch vergrößern
+                                                                und
+                                                                stimmungsvoll ausleuchten. Bei meinen Projekten
+                                                                lege ich
+                                                                besonderen Wert auf exakte Spachtelarbeiten
+                                                                (Qualitätsstufen Q3/Q4), da indirektes
+                                                                Streiflicht jede
+                                                                Unebenheit sichtbar machen würde.</p>
                                                         </div>
                                                         <div class="blog-post">
-                                                            <h3 class="h4 text-accent-title mb-2">Smart Home &amp; IT-Systemintegration im Wohnbereich</h3>
-                                                            <p class="small text-muted mb-2"><i class="far fa-calendar-alt mr-2"></i> April 2026</p>
-                                                            <p class="blog-text">Ein moderner Innenausbau geht heute Hand in Hand mit intelligenter Gebäudetechnik. IT-Systemintegration bedeutet für mich die nahtlose Verbindung von Netzwerktechnik, Smart-Home-Komponenten und Multimedia-Systemen direkt in der Bauphase. So werden störende Kabel unsichtbar in Wänden geführt und zentrale Verteiler ästhetisch integriert.</p>
+                                                            <h3 class="h4 text-accent-title mb-2">Smart Home
+                                                                &amp;
+                                                                IT-Systemintegration im Wohnbereich</h3>
+                                                            <p class="small text-muted mb-2"><i
+                                                                    class="far fa-calendar-alt mr-2"></i> April
+                                                                2026</p>
+                                                            <p class="blog-text">Ein moderner Innenausbau geht
+                                                                heute
+                                                                Hand in Hand mit intelligenter Gebäudetechnik.
+                                                                IT-Systemintegration bedeutet für mich die
+                                                                nahtlose
+                                                                Verbindung von Netzwerktechnik,
+                                                                Smart-Home-Komponenten
+                                                                und Multimedia-Systemen direkt in der Bauphase.
+                                                                So
+                                                                werden störende Kabel unsichtbar in Wänden
+                                                                geführt und
+                                                                zentrale Verteiler ästhetisch integriert.</p>
                                                         </div>
-                                                    </div>                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,102 +257,153 @@
                                         <div class="tm-nav-link">
                                             <i class="fas fa-file-alt fa-3x tm-nav-icon"></i>
                                             <span class="tm-nav-text">Lebenslauf</span>
-                                            <div class="product__bg"></div>            
-                                        </div>                                     
+                                            <div class="product__bg"></div>
+                                        </div>
                                         <div class="product__description">
                                             <div class="p-sm-4 p-3">
                                                 <div class="row mb-3">
                                                     <div class="col-12">
-                                                        <h2 class="tm-page-title">Lebenslauf</h2>        
+                                                        <h2 class="tm-page-title">Lebenslauf</h2>
                                                     </div>
                                                 </div>
                                                 <div class="row cv-row">
-                                                     <!-- Left Side: Skills & Languages -->
-                                                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 cv-col-left">
-                                                         <!-- Section A: Qualifizierungsprofil -->
-                                                         <div class="cv-section cv-section-a mb-4">
-                                                             <h3 class="mb-3 text-accent-subtitle">Qualifizierungsprofil</h3>
-                                                             <ul class="list-unstyled skills-list">
-                                                                  <li>Vorbereitung von Baustellen, Erstellung von Plänen sowie Koordination der Zusammenarbeit mit den einzelnen Auftragnehmern</li>
-                                                                  <li>Langjährige Berufserfahrung in der Baubranche und im Innenausbau</li>
-                                                                  <li>Professionelle Beratung bei der Planung und dem Einkauf geeigneter Materialien</li>
-                                                                  <li>Durchführung von Renovierungs- und Reparaturarbeiten, darunter Spachteln von Wänden und Decken, Streichen, Tapezieren, Verlegen von Keramikfliesen sowie Laminat- und Parkettböden</li>
-                                                                  <li>Montage und Ausführung von Trockenbaukonstruktionen, einschließlich Wänden und Decken mit einem speziellen Beleuchtungssystem</li>
-                                                                  <li>Einbau von Dämmstoffen zur Gewährleistung von Wärme-, Wind-, Brand- und Schallschutz</li>
-                                                              </ul>
-                                                         </div>
-                                                         
-                                                         <!-- Section D: EDV- & Sprachkenntnisse -->
-                                                         <div class="cv-section cv-section-d mb-4">
-                                                             <h3 class="mb-3 text-accent-title">EDV- &amp; Sprachkenntnisse</h3>
-                                                             <ul class="list-unstyled info-text-list">
-                                                                 <li class="mb-2"><strong class="text-accent-subtitle">EDV:</strong> MS Office, IT-Systemintegration</li>
-                                                                 <li><strong class="text-accent-subtitle">Sprachen:</strong> Deutsch (Niveau A2), Polnisch (Muttersprache)</li>
-                                                             </ul>
-                                                         </div>
-                                                         
-                                                         <!-- Section E: PDF Download Button -->
-                                                         <div class="cv-section cv-section-e">
-                                                             <div class="mt-4">
-                                                                 <a href="img/Bewerbung_Gregor_Skrzeszewski.pdf?v=1.1" class="btn btn-primary cv-download-btn" target="_blank">
-                                                                     📄 PDF-Version herunterladen
-                                                                 </a>
-                                                             </div>
-                                                         </div>
-                                                     </div>   
-                                                     <!-- Right Side: Timeline & Personal Info -->                                             
-                                                     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-4 mt-md-0 cv-col-right">
-                                                         <!-- Section B: Werdegang & Ausbildung -->
-                                                         <div class="cv-section cv-section-b mb-4">
-                                                             <h3 class="mb-3 text-accent-subtitle">Beruflicher Werdegang</h3>
-                                                             <div class="timeline">
-                                                                 <div class="timeline-item dot-accent-1">
-                                                                     <div class="timeline-date">Seit 10/2024</div>
-                                                                     <h4>Berufliche Neuorientierung</h4>
-                                                                 </div>
-                                                                 <div class="timeline-item dot-accent-2">
-                                                                     <div class="timeline-date">12/2018 – 09/2024</div>
-                                                                     <h4>Fliesenleger und Trockenbauer</h4>
-                                                                     <p class="timeline-text">Selbstständiger Unternehmer, Bonn</p>
-                                                                 </div>
-                                                                 <div class="timeline-item dot-accent-1">
-                                                                     <div class="timeline-date">12/2016 – 11/2018</div>
-                                                                     <h4>Maler- und Tapezierer</h4>
-                                                                     <p class="timeline-text">Firma Leszek Schneider, Bonn</p>
-                                                                 </div>
-                                                                 <div class="timeline-item dot-accent-2">
-                                                                     <div class="timeline-date">11/2014 – 11/2016</div>
-                                                                     <h4>Fliesenleger und Trockenbauer</h4>
-                                                                     <p class="timeline-text">Selbstständiger Unternehmer, Bonn</p>
-                                                                 </div>
-                                                                 <div class="timeline-item dot-accent-1">
-                                                                     <div class="timeline-date">10/1998 – 10/2014</div>
-                                                                     <h4>Sanitär- und Heizungsmonteur</h4>
-                                                                     <p class="timeline-text">Selbstständiger Unternehmer, Gdingen / Polen</p>
-                                                                 </div>
-                                                             </div>
-                                                             
-                                                             <h3 class="mt-4 mb-3 text-accent-subtitle">Ausbildung</h3>
-                                                             <div class="timeline">
-                                                                 <div class="timeline-item dot-accent-1">
-                                                                     <div class="timeline-date">09/1992 – 06/1995</div>
-                                                                     <h4>Berufsschule der Marine</h4>
-                                                                     <p class="timeline-text">Abschluss: Schiffsmaschinenmonteur</p>
-                                                                 </div>
-                                                             </div>
-                                                         </div>
-                                                         
-                                                         <!-- Section C: Persönliche Daten -->
-                                                         <div class="cv-section cv-section-c mb-4">
-                                                             <h3 class="mb-3 text-accent-subtitle">Persönliche Daten</h3>
-                                                             <ul class="list-unstyled personal-info-list mb-4">
-                                                                 <li><strong>Geburtsdatum:</strong> 08.12.1976 in Danzig / Polen</li>
-                                                                 <li><strong>Staatsangehörigkeit:</strong> Polnisch</li>
-                                                                 <li><strong>Familienstand:</strong> Verheiratet, 1 Kind</li>
-                                                             </ul>
-                                                         </div>
-                                                     </div>
-                                                 </div>
+                                                    <!-- Left Side: Skills & Languages -->
+                                                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 cv-col-left">
+                                                        <!-- Section A: Qualifizierungsprofil -->
+                                                        <div class="cv-section cv-section-a mb-4">
+                                                            <h3 class="mb-3 text-accent-subtitle">
+                                                                Qualifizierungsprofil
+                                                            </h3>
+                                                            <ul class="list-unstyled skills-list">
+                                                                <li>Vorbereitung von Baustellen, Erstellung von
+                                                                    Plänen
+                                                                    sowie Koordination der Zusammenarbeit mit
+                                                                    den
+                                                                    einzelnen Auftragnehmern</li>
+                                                                <li>Langjährige Berufserfahrung in der
+                                                                    Baubranche und im
+                                                                    Innenausbau</li>
+                                                                <li>Professionelle Beratung bei der Planung und
+                                                                    dem
+                                                                    Einkauf geeigneter Materialien</li>
+                                                                <li>Durchführung von Renovierungs- und
+                                                                    Reparaturarbeiten, darunter Spachteln von
+                                                                    Wänden und
+                                                                    Decken, Streichen, Tapezieren, Verlegen von
+                                                                    Keramikfliesen sowie Laminat- und
+                                                                    Parkettböden</li>
+                                                                <li>Montage und Ausführung von
+                                                                    Trockenbaukonstruktionen,
+                                                                    einschließlich Wänden und Decken mit einem
+                                                                    speziellen Beleuchtungssystem</li>
+                                                                <li>Einbau von Dämmstoffen zur Gewährleistung
+                                                                    von
+                                                                    Wärme-, Wind-, Brand- und Schallschutz</li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <!-- Section D: EDV- & Sprachkenntnisse -->
+                                                        <div class="cv-section cv-section-d mb-4">
+                                                            <h3 class="mb-3 text-accent-title">EDV- &amp;
+                                                                Sprachkenntnisse</h3>
+                                                            <ul class="list-unstyled info-text-list">
+                                                                <li class="mb-2"><strong
+                                                                        class="text-accent-subtitle">EDV:</strong>
+                                                                    MS
+                                                                    Office, IT-Systemintegration</li>
+                                                                <li><strong
+                                                                        class="text-accent-subtitle">Sprachen:</strong>
+                                                                    Deutsch (Niveau A2), Polnisch
+                                                                    (Muttersprache)</li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <!-- Section E: PDF Download Button -->
+                                                        <div class="cv-section cv-section-e">
+                                                            <div class="mt-4">
+                                                                <a href="img/Bewerbung_Gregor_Skrzeszewski.pdf?v=1.1"
+                                                                    class="btn btn-primary cv-download-btn"
+                                                                    target="_blank">
+                                                                    📄 PDF-Version herunterladen
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Right Side: Timeline & Personal Info -->
+                                                    <div
+                                                        class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-4 mt-md-0 cv-col-right">
+                                                        <!-- Section B: Werdegang & Ausbildung -->
+                                                        <div class="cv-section cv-section-b mb-4">
+                                                            <h3 class="mb-3 text-accent-subtitle">Beruflicher
+                                                                Werdegang
+                                                            </h3>
+                                                            <div class="timeline">
+                                                                <div class="timeline-item dot-accent-1">
+                                                                    <div class="timeline-date">Seit 10/2024
+                                                                    </div>
+                                                                    <h4>Berufliche Neuorientierung</h4>
+                                                                </div>
+                                                                <div class="timeline-item dot-accent-2">
+                                                                    <div class="timeline-date">12/2018 – 09/2024
+                                                                    </div>
+                                                                    <h4>Fliesenleger und Trockenbauer</h4>
+                                                                    <p class="timeline-text">Selbstständiger
+                                                                        Unternehmer, Bonn</p>
+                                                                </div>
+                                                                <div class="timeline-item dot-accent-1">
+                                                                    <div class="timeline-date">12/2016 – 11/2018
+                                                                    </div>
+                                                                    <h4>Maler- und Tapezierer</h4>
+                                                                    <p class="timeline-text">Firma Leszek
+                                                                        Schneider,
+                                                                        Bonn</p>
+                                                                </div>
+                                                                <div class="timeline-item dot-accent-2">
+                                                                    <div class="timeline-date">11/2014 – 11/2016
+                                                                    </div>
+                                                                    <h4>Fliesenleger und Trockenbauer</h4>
+                                                                    <p class="timeline-text">Selbstständiger
+                                                                        Unternehmer, Bonn</p>
+                                                                </div>
+                                                                <div class="timeline-item dot-accent-1">
+                                                                    <div class="timeline-date">10/1998 – 10/2014
+                                                                    </div>
+                                                                    <h4>Sanitär- und Heizungsmonteur</h4>
+                                                                    <p class="timeline-text">Selbstständiger
+                                                                        Unternehmer, Gdingen / Polen</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <h3 class="mt-4 mb-3 text-accent-subtitle">
+                                                                Ausbildung</h3>
+                                                            <div class="timeline">
+                                                                <div class="timeline-item dot-accent-1">
+                                                                    <div class="timeline-date">09/1992 – 06/1995
+                                                                    </div>
+                                                                    <h4>Berufsschule der Marine</h4>
+                                                                    <p class="timeline-text">Abschluss:
+                                                                        Schiffsmaschinenmonteur</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Section C: Persönliche Daten -->
+                                                        <div class="cv-section cv-section-c mb-4">
+                                                            <h3 class="mb-3 text-accent-subtitle">Persönliche
+                                                                Daten</h3>
+                                                            <ul class="list-unstyled personal-info-list mb-4">
+                                                                <li><strong>Geburtsdatum:</strong> 08.12.1976 in
+                                                                    Danzig
+                                                                    / Polen</li>
+                                                                <li><strong>Staatsangehörigkeit:</strong>
+                                                                    Polnisch</li>
+                                                                <li><strong>Familienstand:</strong> Verheiratet,
+                                                                    1 Kind
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -316,114 +415,154 @@
                                         <div class="tm-nav-link">
                                             <i class="fas fa-envelope fa-3x tm-nav-icon"></i>
                                             <span class="tm-nav-text">Kontakt</span>
-                                            <div class="product__bg"></div>             
-                                        </div>                                                              
+                                            <div class="product__bg"></div>
+                                        </div>
                                         <div class="product__description">
                                             <div class="pt-sm-4 pb-sm-4 pl-sm-5 pr-sm-5 pt-2 pb-2 pl-3 pr-3">
                                                 <div class="row mb-3">
                                                     <div class="col-12">
-                                                        <h2 class="tm-page-title">Kontakt</h2>        
+                                                        <h2 class="tm-page-title">Kontakt</h2>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                     <div class="col-12 col-md-6">
-                                                         <p class="contact-intro">Haben Sie Fragen, ein Projekt oder ein interessantes Jobangebot? Schreiben Sie mir gerne eine E-Mail oder rufen Sie mich an – ich freue mich auf Ihre Kontaktaufnahme.</p>
-                                                     </div>
-                                                     <div class="col-12 col-md-6 mt-3 mt-md-0 contact-details">
-                                                         <ul class="list-unstyled">
-                                                             <li class="mb-2"><i class="fas fa-envelope mr-2"></i> <a href="mailto:gregor.skrzeszewski@projekt-traum.de">gregor.skrzeszewski@<br>projekt-traum.de</a></li>
-                                                             <li class="mb-2"><i class="fas fa-phone mr-2"></i> <a href="tel:+4916099657999">+49 160 99657999</a></li>
-                                                             <li class="mb-2 contact-flex"><i class="fas fa-map-marker-alt mr-2"></i> <span class="contact-text">Edith-Stein-Anlage 16<br>53123 Bonn</span></li>
-                                                         </ul>
-                                                     </div>
-                                                 </div>
-                                            </div>                                            
+                                                    <div class="col-12 col-md-6">
+                                                        <p class="contact-intro">Haben Sie Fragen, ein Projekt
+                                                            oder ein
+                                                            interessantes Jobangebot? Schreiben Sie mir gerne
+                                                            eine
+                                                            E-Mail oder rufen Sie mich an – ich freue mich auf
+                                                            Ihre
+                                                            Kontaktaufnahme.</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 mt-3 mt-md-0 contact-details">
+                                                        <ul class="list-unstyled">
+                                                            <li class="mb-2"><i class="fas fa-envelope mr-2"></i> <a
+                                                                    href="mailto:gregor.skrzeszewski@projekt-traum.de">gregor.skrzeszewski@<br>projekt-traum.de</a>
+                                                            </li>
+                                                            <li class="mb-2"><i class="fas fa-phone mr-2"></i>
+                                                                <a href="tel:+4916099657999">+49 160
+                                                                    99657999</a>
+                                                            </li>
+                                                            <li class="mb-2 contact-flex"><i
+                                                                    class="fas fa-map-marker-alt mr-2"></i>
+                                                                <span class="contact-text">Edith-Stein-Anlage
+                                                                    16<br>53123
+                                                                    Bonn</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
-                            </div> 
+                            </div>
                         </main>
                         <div class="tm-social-blog-container">
                             <div class="tm-social-links">
-                                <a href="https://www.facebook.com/profile.php?id=61590328182499" target="_blank" rel="noopener noreferrer" class="tm-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://x.com/_Projekt_Traum" target="_blank" rel="noopener noreferrer" class="tm-social-link" title="X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="tm-x-svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" fill="currentColor"/></svg></a>
-                                <a href="https://www.instagram.com/_projekt_traum/" target="_blank" rel="noopener noreferrer" class="tm-social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="https://github.com/Skorpion-DELL" target="_blank" rel="noopener noreferrer" class="tm-social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/projekt-traum-b64201415" target="_blank" rel="noopener noreferrer" class="tm-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61590328182499" target="_blank"
+                                    rel="noopener noreferrer" class="tm-social-link" title="Facebook"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://x.com/_Projekt_Traum" target="_blank" rel="noopener noreferrer"
+                                    class="tm-social-link" title="X"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512" class="tm-x-svg">
+                                        <path
+                                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                                            fill="currentColor" />
+                                    </svg></a>
+                                <a href="https://www.instagram.com/_projekt_traum/" target="_blank"
+                                    rel="noopener noreferrer" class="tm-social-link" title="Instagram"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://github.com/Skorpion-DELL" target="_blank" rel="noopener noreferrer"
+                                    class="tm-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/projekt-traum-b64201415" target="_blank"
+                                    rel="noopener noreferrer" class="tm-social-link" title="LinkedIn"><i
+                                        class="fab fa-linkedin-in"></i></a>
                             </div>
-                        </div>                       
+                        </div>
+                        <footer>
+                            <p class="small tm-copyright-text">&copy; <span class="tm-current-year">2026</span>
+                                Gregor
+                                Skrzeszewski. Alle Rechte
+                                vorbehalten.<br>Design von <a rel="nofollow" href="https://www.tooplate.com"
+                                    class="tm-text-highlight">Tooplate</a> and <a rel="nofollow"
+                                    href="https://www.magnific.com" class="tm-text-highlight">Magnific.</a></p>
+                        </footer>
                     </div>
-                </div>                
+                </div>
             </div>
-            <footer>
-                <p class="small tm-copyright-text">&copy; 2026 Gregor Skrzeszewski. Alle Rechte vorbehalten. | Design von <a rel="nofollow" href="https://www.tooplate.com" class="tm-text-highlight">Tooplate</a> and <a rel="nofollow" href="https://www.magnific.com" class="tm-text-highlight">Magnific</a></p>
-            </footer>
-        </div> <!-- .tm-main-content -->  
+        </div> <!-- .tm-main-content -->
     </div>
     <!-- load JS -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>         <!-- https://jquery.com/ -->    
-    <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->  
-    <script src="js/anime.min.js"></script>                     <!-- http://animejs.com/ -->
-    <script src="js/main.js?v=1.6"></script>  
-    <script>      
+    <script src="js/jquery-3.2.1.slim.min.js"></script> <!-- https://jquery.com/ -->
+    <script src="slick/slick.min.js"></script> <!-- http://kenwheeler.github.io/slick/ -->
+    <script src="js/anime.min.js"></script> <!-- http://animejs.com/ -->
+    <script src="js/theme-extractor.js"></script>
+    <script src="js/main.js?v=1.6"></script>
+    <script>
 
         function setupFooter() {
             var pageHeight = $('.tm-site-header-container').height() + $('footer').height() + 100;
 
             var main = $('.tm-main-content');
 
-            if($(window).height() < pageHeight) {
+            if ($(window).height() < pageHeight) {
                 main.addClass('tm-footer-relative');
             }
             else {
-                main.removeClass('tm-footer-relative');   
+                main.removeClass('tm-footer-relative');
             }
         }
 
         /* DOM is ready
         ------------------------------------------------*/
-        $(function(){
+        $(function () {
 
             setupFooter();
 
-            $(window).resize(function(){
+            $(window).resize(function () {
                 setupFooter();
             });
 
             $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright           
         });
 
-    </script>             
+    </script>
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <div class="cookie-text-container">
                 <p class="cookie-title">Cookie-Einstellungen</p>
-                <p class="cookie-desc">Wir verwenden Cookies, um die Funktionalität dieser Website zu gewährleisten und das Nutzererlebnis zu verbessern. Bitte wählen Sie Ihre Präferenzen.</p>
+                <p class="cookie-desc">Wir verwenden Cookies, um die Funktionalität dieser Website zu
+                    gewährleisten und
+                    das Nutzererlebnis zu verbessern. Bitte wählen Sie Ihre Präferenzen.</p>
             </div>
-            
+
             <!-- Cookie Preferences Details (hidden by default) -->
             <div id="cookie-settings-panel" class="cookie-settings-panel">
                 <div class="cookie-option">
                     <label class="cookie-checkbox-container">
                         <input type="checkbox" id="cookie-essential" checked disabled>
                         <span class="checkmark"></span>
-                        <span class="option-label"><strong>Essenziell</strong> (Erforderlich für die Grundfunktion)</span>
+                        <span class="option-label"><strong>Essenziell</strong> (Erforderlich für die
+                            Grundfunktion)</span>
                     </label>
                 </div>
                 <div class="cookie-option">
                     <label class="cookie-checkbox-container">
                         <input type="checkbox" id="cookie-analytics">
                         <span class="checkmark"></span>
-                        <span class="option-label"><strong>Analytisch</strong> (Hilft uns, die Website zu verbessern)</span>
+                        <span class="option-label"><strong>Analytisch</strong> (Hilft uns, die Website zu
+                            verbessern)</span>
                     </label>
                 </div>
                 <div class="cookie-option">
                     <label class="cookie-checkbox-container">
                         <input type="checkbox" id="cookie-marketing">
                         <span class="checkmark"></span>
-                        <span class="option-label"><strong>Marketing</strong> (Für personalisierte Inhalte)</span>
+                        <span class="option-label"><strong>Marketing</strong> (Für personalisierte
+                            Inhalte)</span>
                     </label>
                 </div>
             </div>
@@ -431,13 +570,16 @@
             <div class="cookie-buttons">
                 <!-- Standard Buttons -->
                 <div id="cookie-main-buttons" class="cookie-btn-group">
-                    <button id="accept-all-cookies" class="btn cookie-btn cookie-btn-primary">Alle akzeptieren</button>
-                    <button id="accept-essential-cookies" class="btn cookie-btn cookie-btn-secondary">Nur essenzielle</button>
+                    <button id="accept-all-cookies" class="btn cookie-btn cookie-btn-primary">Alle
+                        akzeptieren</button>
+                    <button id="accept-essential-cookies" class="btn cookie-btn cookie-btn-secondary">Nur
+                        essenzielle</button>
                     <button id="toggle-cookie-settings" class="btn cookie-btn cookie-btn-link">Einstellungen</button>
                 </div>
                 <!-- Settings Panel Buttons (hidden by default) -->
                 <div id="cookie-save-button-container" class="cookie-btn-group">
-                    <button id="save-cookie-settings" class="btn cookie-btn cookie-btn-primary">Auswahl bestätigen</button>
+                    <button id="save-cookie-settings" class="btn cookie-btn cookie-btn-primary">Auswahl
+                        bestätigen</button>
                     <button id="back-cookie-settings" class="btn cookie-btn cookie-btn-link">Zurück</button>
                 </div>
             </div>
@@ -445,66 +587,66 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var banner = document.getElementById("cookie-banner");
             var acceptAllBtn = document.getElementById("accept-all-cookies");
             var acceptEssentialBtn = document.getElementById("accept-essential-cookies");
             var toggleSettingsBtn = document.getElementById("toggle-cookie-settings");
             var saveSettingsBtn = document.getElementById("save-cookie-settings");
             var backSettingsBtn = document.getElementById("back-cookie-settings");
-            
+
             var settingsPanel = document.getElementById("cookie-settings-panel");
             var mainButtons = document.getElementById("cookie-main-buttons");
             var saveButtonContainer = document.getElementById("cookie-save-button-container");
-            
+
             var checkboxAnalytics = document.getElementById("cookie-analytics");
             var checkboxMarketing = document.getElementById("cookie-marketing");
-            
+
             // Check if user has already made a selection (unified key)
             if (!localStorage.getItem("cookiesConsent")) {
                 // Clear old key if exists
                 localStorage.removeItem("cookiesAccepted");
-                
-                setTimeout(function() {
+
+                setTimeout(function () {
                     banner.classList.add("show");
                 }, 1000);
             }
-            
+
             // Accept All Cookies
-            acceptAllBtn.addEventListener("click", function() {
+            acceptAllBtn.addEventListener("click", function () {
                 saveConsent({ essential: true, analytics: true, marketing: true });
             });
-            
+
             // Accept Essential Only (Rejection of others)
-            acceptEssentialBtn.addEventListener("click", function() {
+            acceptEssentialBtn.addEventListener("click", function () {
                 saveConsent({ essential: true, analytics: false, marketing: false });
             });
-            
+
             // Toggle Settings Panel (Show)
-            toggleSettingsBtn.addEventListener("click", function(e) {
+            toggleSettingsBtn.addEventListener("click", function (e) {
                 e.preventDefault();
                 settingsPanel.style.display = "flex";
                 mainButtons.style.display = "none";
                 saveButtonContainer.style.display = "flex";
             });
-            
+
             // Go Back from Settings Panel
-            backSettingsBtn.addEventListener("click", function(e) {
+            backSettingsBtn.addEventListener("click", function (e) {
                 e.preventDefault();
                 settingsPanel.style.display = "none";
                 mainButtons.style.display = "flex";
                 saveButtonContainer.style.display = "none";
             });
-            
+
             // Save Settings Panel Selection
-            saveSettingsBtn.addEventListener("click", function() {
+            saveSettingsBtn.addEventListener("click", function () {
                 saveConsent({
                     essential: true,
                     analytics: checkboxAnalytics.checked,
                     marketing: checkboxMarketing.checked
                 });
             });
-            
+
             function saveConsent(consent) {
                 localStorage.setItem("cookiesConsent", JSON.stringify(consent));
                 banner.classList.remove("show");
@@ -514,4 +656,5 @@
 
 
 </body>
+
 </html>

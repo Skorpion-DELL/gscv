@@ -1,0 +1,13 @@
+# System files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+# Scrap text files
+list.txt
+tekst.txt
+
+# FreeFileSync database
+.sync.ffs_db

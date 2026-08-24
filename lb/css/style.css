@@ -9,26 +9,28 @@
     --gold-light: #E3C67C;
     --gold-gradient: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
     --accent-navy: linear-gradient(135deg, var(--navy-deep), var(--navy-medium));
-    
+
     /* Backgrounds */
     --cream-bg: #FAF9F6;
     --cream-card: #FCFBFA;
-    --desk-bg: #0F0F16; /* Same dark grey/black background as buttons */
-    --desk-accent: radial-gradient(circle, rgba(184, 151, 66, 0.15) 0%, rgba(15, 15, 22, 0) 70%); /* Warm gold elegant ambient light */
-    
+    --desk-bg: transparent;
+    /* Transparent background to reveal main page wallpaper */
+    --desk-accent: radial-gradient(circle, rgba(184, 151, 66, 0.15) 0%, rgba(15, 15, 22, 0) 70%);
+    /* Warm gold elegant ambient light */
+
     /* Typography */
     --serif-font: 'Cormorant Garamond', serif;
     --body-font: 'Inter', sans-serif;
-    
+
     /* Ink/Text colors */
     --text-dark: #1E2E3E;
     --text-muted: #627D98;
-    
+
     /* Shadows */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
     --shadow-hard: 0 20px 40px rgba(0, 0, 0, 0.3);
-    --book-shadow-left: -15px 10px 30px rgba(0,0,0,0.15);
-    --book-shadow-right: 15px 10px 30px rgba(0,0,0,0.15);
+    --book-shadow-left: -15px 10px 30px rgba(0, 0, 0, 0.15);
+    --book-shadow-right: 15px 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================================================================
@@ -41,7 +43,12 @@
 }
 
 body {
-    background-color: var(--desk-bg);
+    background-color: #0F0F16;
+    background-image: url('../../img/wal1.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: var(--body-font);
     color: var(--text-dark);
     overflow-x: hidden;
@@ -98,7 +105,8 @@ body {
 }
 
 .book {
-    width: 480px; /* One page width */
+    width: 480px;
+    /* One page width */
     height: 600px;
     position: absolute;
     left: 50%;
@@ -140,7 +148,7 @@ body {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: var(--cream-bg);
-    padding: 50px 45px;
+    padding: 34px 38px;
     box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.04);
     overflow: hidden;
     display: flex;
@@ -148,17 +156,17 @@ body {
 }
 
 .page-side.front {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) translateZ(0.5px);
     z-index: 2;
     border-radius: 0 12px 12px 0;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.1), inset 0 0 40px rgba(0, 0, 0, 0.04);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1), inset 0 0 40px rgba(0, 0, 0, 0.04);
 }
 
 .page-side.back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateZ(0.5px);
     z-index: 1;
     border-radius: 12px 0 0 12px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1), inset 0 0 40px rgba(0, 0, 0, 0.04);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1), inset 0 0 40px rgba(0, 0, 0, 0.04);
 }
 
 /* Spine shadow effects */
@@ -169,7 +177,7 @@ body {
     left: 0;
     width: 20px;
     height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
 }
 
@@ -180,7 +188,7 @@ body {
     right: 0;
     width: 20px;
     height: 100%;
-    background: linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
 }
 
@@ -191,6 +199,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 /* ==========================================================================
@@ -214,10 +223,25 @@ body {
     --dot-color: hsl(210, 15%, 75%);
 }
 
-.top-right-dots { top: -20px; right: -15px; }
-.bottom-left-dots { bottom: -20px; left: -15px; }
-.top-left-dots { top: -20px; left: -15px; }
-.bottom-right-dots { bottom: -20px; right: -15px; }
+.top-right-dots {
+    top: -20px;
+    right: -15px;
+}
+
+.bottom-left-dots {
+    bottom: -20px;
+    left: -15px;
+}
+
+.top-left-dots {
+    top: -20px;
+    left: -15px;
+}
+
+.bottom-right-dots {
+    bottom: -20px;
+    right: -15px;
+}
 
 /* Accent Bars */
 .accent-bar {
@@ -226,23 +250,124 @@ body {
     pointer-events: none;
 }
 
-.gold-vertical-left { left: -45px; top: -50px; width: 6px; height: 120%; }
-.gold-vertical-right { right: -45px; top: -50px; width: 6px; height: 120%; }
-.gold-vertical-right-thick { right: -45px; top: -50px; width: 14px; height: 120%; }
-.gold-vertical-left-thick { left: -45px; top: -50px; width: 14px; height: 120%; }
-.gold-vertical-right-side { right: -20px; top: -50px; width: 6px; height: 120%; }
-.gold-vertical-left-side { left: -20px; top: -50px; width: 6px; height: 120%; }
+.gold-vertical-left {
+    left: -45px;
+    top: -50px;
+    width: 6px;
+    height: 120%;
+}
 
-.navy-horizontal-top { top: -50px; left: -45px; height: 10px; width: 70%; background: var(--accent-navy); }
-.gold-horizontal-bottom { bottom: -50px; left: -45px; height: 6px; width: 60%; }
-.gold-horizontal-top { top: -50px; left: -45px; height: 6px; width: 120%; }
-.navy-horizontal-bottom { bottom: -50px; left: -45px; height: 10px; width: 120%; background: var(--accent-navy); }
-.navy-horizontal-bottom-wide { bottom: -50px; left: -45px; height: 14px; width: 120%; background: var(--accent-navy); }
-.navy-horizontal-top-wide { top: -50px; left: -45px; height: 14px; width: 120%; background: var(--accent-navy); }
-.gold-horizontal-top-right { top: -50px; right: -45px; height: 6px; width: 50%; }
-.navy-vertical-left-thick { left: -45px; top: -50px; width: 14px; height: 120%; background: var(--accent-navy); }
-.navy-horizontal-bottom-right { bottom: -50px; right: -45px; height: 10px; width: 70%; background: var(--accent-navy); }
-.navy-horizontal-top-right { top: -50px; right: -45px; height: 10px; width: 75%; background: var(--accent-navy); }
+.gold-vertical-right {
+    right: -45px;
+    top: -50px;
+    width: 6px;
+    height: 120%;
+}
+
+.gold-vertical-right-thick {
+    right: -45px;
+    top: -50px;
+    width: 14px;
+    height: 120%;
+}
+
+.gold-vertical-left-thick {
+    left: -45px;
+    top: -50px;
+    width: 14px;
+    height: 120%;
+}
+
+.gold-vertical-right-side {
+    right: -20px;
+    top: -50px;
+    width: 6px;
+    height: 120%;
+}
+
+.gold-vertical-left-side {
+    left: -20px;
+    top: -50px;
+    width: 6px;
+    height: 120%;
+}
+
+.navy-horizontal-top {
+    top: -50px;
+    left: -45px;
+    height: 10px;
+    width: 70%;
+    background: var(--accent-navy);
+}
+
+.gold-horizontal-bottom {
+    bottom: -50px;
+    left: -45px;
+    height: 6px;
+    width: 60%;
+}
+
+.gold-horizontal-top {
+    top: -50px;
+    left: -45px;
+    height: 6px;
+    width: 120%;
+}
+
+.navy-horizontal-bottom {
+    bottom: -50px;
+    left: -45px;
+    height: 10px;
+    width: 120%;
+    background: var(--accent-navy);
+}
+
+.navy-horizontal-bottom-wide {
+    bottom: -50px;
+    left: -45px;
+    height: 14px;
+    width: 120%;
+    background: var(--accent-navy);
+}
+
+.navy-horizontal-top-wide {
+    top: -50px;
+    left: -45px;
+    height: 14px;
+    width: 120%;
+    background: var(--accent-navy);
+}
+
+.gold-horizontal-top-right {
+    top: -50px;
+    right: -45px;
+    height: 6px;
+    width: 50%;
+}
+
+.navy-vertical-left-thick {
+    left: -45px;
+    top: -50px;
+    width: 14px;
+    height: 120%;
+    background: var(--accent-navy);
+}
+
+.navy-horizontal-bottom-right {
+    bottom: -50px;
+    right: -45px;
+    height: 10px;
+    width: 70%;
+    background: var(--accent-navy);
+}
+
+.navy-horizontal-top-right {
+    top: -50px;
+    right: -45px;
+    height: 10px;
+    width: 75%;
+    background: var(--accent-navy);
+}
 
 /* ==========================================================================
    Typography & Common Elements
@@ -295,7 +420,7 @@ body {
 /* Image Placeholders */
 .image-container {
     background-color: #ECEAE4;
-    border: 1px solid rgba(16,42,67,0.08);
+    border: 1px solid rgba(16, 42, 67, 0.08);
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
@@ -312,13 +437,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: repeating-linear-gradient(
-        -45deg,
-        rgba(184, 151, 66, 0.01) 0px,
-        rgba(184, 151, 66, 0.01) 12px,
-        rgba(16, 42, 67, 0.03) 12px,
-        rgba(16, 42, 67, 0.03) 24px
-    );
+    background-image: repeating-linear-gradient(-45deg,
+            rgba(184, 151, 66, 0.01) 0px,
+            rgba(184, 151, 66, 0.01) 12px,
+            rgba(16, 42, 67, 0.03) 12px,
+            rgba(16, 42, 67, 0.03) 24px);
 }
 
 .placeholder-icon {
@@ -342,19 +465,19 @@ body {
 
 /* 1. Cover Page */
 .cover-page .cover-header h1 {
-    font-size: 38px;
-    margin-top: 20px;
+    font-size: 32px;
+    margin-top: 10px;
 }
 
 .cover-hero {
-    height: 290px;
+    height: 250px;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .logo-emblem {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: var(--gold-gradient);
     display: flex;
@@ -366,8 +489,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     position: absolute;
-    bottom: 50px;
-    left: -15px;
+    bottom: 35px;
+    left: -10px;
     box-shadow: 0 4px 15px rgba(184, 151, 66, 0.3);
 }
 
@@ -380,23 +503,23 @@ body {
 
 /* 2. About Page */
 .about-story {
-    margin-bottom: 30px;
+    margin-bottom: 12px;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 25px;
+    gap: 18px;
 }
 
 .employment-timeline .timeline-item {
     display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 6px;
 }
 
 .employment-timeline .timeline-item .year {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--navy-medium);
 }
@@ -413,9 +536,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-bottom: 1px solid rgba(16,42,67,0.1);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(16, 42, 67, 0.1);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .studio-name {
@@ -432,19 +555,19 @@ body {
 }
 
 .studio-intro {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .studio-hero {
     flex-grow: 1;
-    min-height: 200px;
+    min-height: 180px;
 }
 
 /* 4. Projects Layout 1 */
 .project-columns-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 18px;
+    gap: 14px;
     height: 100%;
 }
 
@@ -454,10 +577,10 @@ body {
 }
 
 .client-name {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--navy-medium);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .project-columns-grid .image-container.height-full {
@@ -469,26 +592,26 @@ body {
 .layout-2-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     height: 100%;
 }
 
 .landscape-hero {
-    height: 240px;
+    height: 185px;
     width: 100%;
 }
 
 .columns-two {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 14px;
 }
 
 /* 6. Projects Layout 3 */
 .layout-3-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 25px;
+    gap: 18px;
     height: 100%;
 }
 
@@ -511,21 +634,21 @@ body {
 }
 
 .offset-center {
-    height: 330px;
+    height: 260px;
     width: 85%;
     margin: 0 auto;
     transform: rotate(1deg);
 }
 
 .layout-4-text-bottom {
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 /* 8. Projects Layout 5 */
 .layout-5-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 25px;
+    gap: 18px;
     height: 100%;
 }
 
@@ -537,7 +660,7 @@ body {
 .layout-5-right {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 14px;
     height: 100%;
 }
 
@@ -553,7 +676,7 @@ body {
 .layout-6-grid {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    gap: 25px;
+    gap: 18px;
     height: 100%;
 }
 
@@ -588,12 +711,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 80%;
+    width: 85%;
 }
 
 .back-logo {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: var(--accent-navy);
     display: flex;
@@ -604,13 +727,13 @@ body {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin: 0 auto 30px;
+    margin: 0 auto 16px;
     box-shadow: var(--shadow-soft);
 }
 
 .back-cover-center h3 {
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 8px;
 }
 
 /* ==========================================================================
@@ -625,6 +748,7 @@ body {
     padding: 10px 25px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 2;
 }
@@ -698,25 +822,27 @@ body {
     }
 
     .app-container {
-        padding: 80px 15px 40px 15px; /* Leave space for the close button at the top */
+        padding: 80px 15px 40px 15px;
+        /* Leave space for the close button at the top */
     }
-    
+
     .book-container {
         transform: none !important;
         width: 100%;
         height: auto;
     }
-    
+
     .book {
         position: relative !important;
         left: auto !important;
         width: 100%;
-        max-width: 480px; /* Force single page size */
+        max-width: 480px;
+        /* Force single page size */
         height: auto;
         perspective: none;
         transform: none !important;
     }
-    
+
     .leaf {
         position: static;
         width: 100%;
@@ -728,42 +854,48 @@ body {
         margin-bottom: 0;
         pointer-events: auto;
     }
-    
+
     .page-side {
-        position: relative !important; /* Fixes positioning context for accent bars */
-        overflow: hidden !important;   /* Clips decorative bars neatly inside card */
+        position: relative !important;
+        /* Fixes positioning context for accent bars */
+        overflow: hidden !important;
+        /* Clips decorative bars neatly inside card */
         width: 100%;
-        height: auto !important; /* Allow natural content height to avoid text clipping */
+        height: auto !important;
+        /* Allow natural content height to avoid text clipping */
         min-height: 480px;
         transform: none !important;
         backface-visibility: visible;
         margin-bottom: 30px;
         border-radius: 12px !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
         padding: 30px 20px;
     }
-    
+
     .page-content {
         flex-grow: 1;
     }
-    
+
     .accent-bar {
-        display: none !important; /* Hide decorative lines on mobile to prevent text overlay and alignment issues */
+        display: none !important;
+        /* Hide decorative lines on mobile to prevent text overlay and alignment issues */
     }
-    
+
     .page-side.back {
         transform: none !important;
     }
-    
+
     .page-side::after {
-        display: none !important; /* Hide spine shadows */
+        display: none !important;
+        /* Hide spine shadows */
     }
-    
-    .controls-container, 
+
+    .controls-container,
     .shortcuts-tip {
-        display: none !important; /* Hide navigation UI as users scroll */
+        display: none !important;
+        /* Hide navigation UI as users scroll */
     }
-    
+
     /* Layout adjustments for smartphone screens */
     .about-grid,
     .project-columns-grid,
@@ -872,7 +1004,115 @@ body {
     }
 }
 
-/* Custom Scale Wrapper to increase presentation size by 25% */
+/* ==========================================================================
+   Luxury UI Enhancements (Scrollbars, Buttons & Details)
+   ========================================================================== */
+.page-content {
+    overflow: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dark) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+.page-content::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.page-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 4px;
+}
+
+.page-content::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+.pdf-download-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--gold-gradient);
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 24px;
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(184, 151, 66, 0.3);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+}
+
+.pdf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(184, 151, 66, 0.45);
+    color: white !important;
+}
+
+.pdf-btn:active {
+    transform: translateY(0);
+}
+
+.profile-img-frame {
+    border: 2px solid var(--gold-dark) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+    transition: transform 0.3s ease;
+}
+
+.profile-img-frame:hover {
+    transform: scale(1.02);
+}
+
+.image-container {
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container:hover {
+    box-shadow: 0 8px 25px rgba(16, 42, 67, 0.12);
+}
+
+.image-container img {
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.03);
+}
+
+/* Custom Scale Wrapper for responsive desktop presentation */
 .book-scale-wrapper {
     display: flex;
     flex-direction: column;
@@ -889,4 +1129,3 @@ body {
         margin: auto;
     }
 }
-
