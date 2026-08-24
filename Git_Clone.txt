@@ -1,0 +1,4 @@
+cd /home/skorpion/SKORPION/WWW/pr1
+git add .
+git commit -m "Opis Twoich zmian"
+git push
