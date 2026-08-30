@@ -4,27 +4,27 @@
    1. CZCIONKI, ZMIENNE CSS (:root) I PODSTAWOWE STYLE (Reset / Body / Przyciski)
    ========================================================================== */
 :root {
-  --bg-dark: #0A1B2B;
-  /* Deep Navy Blue */
-  --bg-surface-glass: rgba(15, 15, 22, 0.88);
+  --bg-dark: #0e1013;
+  /* Blueprint Charcoal / Deep Graphite */
+  --bg-surface-glass: rgba(14, 16, 20, 0.90);
   /* Tło nagłówków i przycisków */
-  --bg-popup-glass: rgba(15, 15, 22, 0.96);
-  /* Dark grey popup glass */
-  --accent-1: #B89742;
-  /* Złoty akcent 1 */
-  --accent-2: #E3C67C;
-  /* Złoty akcent 2 */
-  --accent-1-rgb: 184, 151, 66;
-  --accent-2-rgb: 227, 198, 124;
+  --bg-popup-glass: rgba(14, 16, 20, 0.97);
+  /* Dark graphite popup glass */
+  --accent-1: #A2B4C7;
+  /* Chłodna platyna / stal */
+  --accent-2: #E1E9F0;
+  /* Jasna platyna / czysta biel */
+  --accent-1-rgb: 162, 180, 199;
+  --accent-2-rgb: 225, 233, 240;
   --gradient-accent: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
-  --text-primary: hsl(40, 20%, 98%);
-  /* Ciepła biel */
-  --text-secondary: hsl(40, 10%, 82%);
-  /* Jasny szary */
-  --text-muted: hsl(40, 8%, 62%);
-  /* Przyciemniony złoty/szary */
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(255, 255, 255, 0.25);
+  --text-primary: #FFFFFF;
+  /* Czysta biel */
+  --text-secondary: hsl(215, 12%, 85%);
+  /* Jasny platynowy szary */
+  --text-muted: hsl(215, 8%, 65%);
+  /* Przyciemniony stalowy */
+  --border-glass: rgba(255, 255, 255, 0.10);
+  --border-glass-hover: rgba(255, 255, 255, 0.30);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 20px 45px -10px rgba(0, 0, 0, 0.7);
@@ -163,7 +163,7 @@ body,
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../img/wal1.svg);
+  background-image: url(../img/wal1.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

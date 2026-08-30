@@ -12,28 +12,28 @@
 
   // Baza precyzyjnych motywów dla grafik z folderu img/
   const WALLPAPER_PRESETS = {
-    // 1. Aktualna tapeta wal1.png (Ciemny grafit / Ciemny łupek & Szampańskie złoto)
+    // 1. Aktualna tapeta wal1.webp (Ciemny grafit / Blueprint CAD & Chłodna Platyna / Stal)
     'wal1': {
-      bgDark: '#100f0f',
-      bgSurfaceGlass: 'rgba(16, 15, 15, 0.88)',
-      bgPopupGlass: 'rgba(16, 15, 15, 0.96)',
-      accent1: '#d7b784',
-      accent2: '#eae2c7',
-      accent1Rgb: '215, 183, 132',
-      accent2Rgb: '234, 226, 199',
-      gradientAccent: 'linear-gradient(135deg, #d7b784 0%, #eae2c7 100%)',
-      textPrimary: '#FAF9F6',
-      textSecondary: 'hsl(40, 10%, 84%)',
-      textMuted: 'hsl(40, 8%, 64%)',
-      borderGlass: 'rgba(255, 255, 255, 0.08)',
-      borderGlassHover: 'rgba(255, 255, 255, 0.25)',
-      bookNavyDeep: '#100f0f',
-      bookNavyMedium: '#312921',
-      bookAccentNavy: 'linear-gradient(135deg, #100f0f, #312921)',
-      bookGoldDark: '#d7b784',
-      bookGoldLight: '#eae2c7',
-      bookGoldGradient: 'linear-gradient(135deg, #d7b784 0%, #eae2c7 50%, #d7b784 100%)',
-      bookDeskAccent: 'radial-gradient(circle, rgba(215, 183, 132, 0.16) 0%, rgba(16, 15, 15, 0) 70%)'
+      bgDark: '#0e1013',
+      bgSurfaceGlass: 'rgba(14, 16, 20, 0.90)',
+      bgPopupGlass: 'rgba(14, 16, 20, 0.97)',
+      accent1: '#A2B4C7',
+      accent2: '#E1E9F0',
+      accent1Rgb: '162, 180, 199',
+      accent2Rgb: '225, 233, 240',
+      gradientAccent: 'linear-gradient(135deg, #A2B4C7 0%, #E1E9F0 100%)',
+      textPrimary: '#FFFFFF',
+      textSecondary: 'hsl(215, 12%, 85%)',
+      textMuted: 'hsl(215, 8%, 65%)',
+      borderGlass: 'rgba(255, 255, 255, 0.10)',
+      borderGlassHover: 'rgba(255, 255, 255, 0.30)',
+      bookNavyDeep: '#0D0F12',
+      bookNavyMedium: '#1F242B',
+      bookAccentNavy: 'linear-gradient(135deg, #0D0F12, #1F242B)',
+      bookGoldDark: '#A2B4C7',
+      bookGoldLight: '#E1E9F0',
+      bookGoldGradient: 'linear-gradient(135deg, #A2B4C7 0%, #E1E9F0 50%, #A2B4C7 100%)',
+      bookDeskAccent: 'radial-gradient(circle, rgba(162, 180, 199, 0.16) 0%, rgba(14, 16, 20, 0) 70%)'
     },
     // 2. Ciepły brąz / Mokate & Miedź
     'mono-brown': {
@@ -311,20 +311,25 @@
     const [domH, domS, domL] = rgbToHsl(avgR, avgG, avgB);
 
     let bestAccent;
+    const isMonochrome = vibrantCandidates.length === 0 && domS < 15;
+
     if (vibrantCandidates.length > 0) {
       vibrantCandidates.sort((a, b) => b.score - a.score);
       const topPick = vibrantCandidates[Math.floor(vibrantCandidates.length * 0.05)];
       bestAccent = { h: topPick.h, s: Math.max(topPick.s, 50), l: Math.max(48, Math.min(68, topPick.l)) };
+    } else if (isMonochrome) {
+      // Dla tapet monochromatycznych (czarno-szarych / blueprint) - szlachetna platyna / stal
+      bestAccent = { h: 215, s: 20, l: 70 };
     } else {
       bestAccent = { h: (domH + 40) % 360, s: 65, l: 55 };
     }
 
     let accent1L = Math.max(48, Math.min(68, bestAccent.l));
-    let accent1Rgb = hslToRgb(bestAccent.h, Math.max(bestAccent.s, 50), accent1L);
+    let accent1Rgb = hslToRgb(bestAccent.h, isMonochrome ? 20 : Math.max(bestAccent.s, 50), accent1L);
 
-    const accent2H = (bestAccent.h + 8) % 360;
-    const accent2L = Math.min(85, accent1L + 18);
-    const accent2S = Math.max(40, bestAccent.s - 5);
+    const accent2H = isMonochrome ? 215 : (bestAccent.h + 8) % 360;
+    const accent2L = Math.min(92, accent1L + 20);
+    const accent2S = isMonochrome ? 25 : Math.max(40, bestAccent.s - 5);
     const accent2Rgb = hslToRgb(accent2H, accent2S, accent2L);
 
     const bgDarkH = domH;
@@ -341,18 +346,18 @@
 
     return {
       bgDark: rgbToHex(bgDarkRgb[0], bgDarkRgb[1], bgDarkRgb[2]),
-      bgSurfaceGlass: `rgba(${glassR}, ${glassG}, ${glassB}, 0.88)`,
-      bgPopupGlass: `rgba(${glassR}, ${glassG}, ${glassB}, 0.96)`,
+      bgSurfaceGlass: `rgba(${glassR}, ${glassG}, ${glassB}, 0.90)`,
+      bgPopupGlass: `rgba(${glassR}, ${glassG}, ${glassB}, 0.97)`,
       accent1: rgbToHex(accent1Rgb[0], accent1Rgb[1], accent1Rgb[2]),
       accent2: rgbToHex(accent2Rgb[0], accent2Rgb[1], accent2Rgb[2]),
       accent1Rgb: `${accent1Rgb[0]}, ${accent1Rgb[1]}, ${accent1Rgb[2]}`,
       accent2Rgb: `${accent2Rgb[0]}, ${accent2Rgb[1]}, ${accent2Rgb[2]}`,
       gradientAccent: `linear-gradient(135deg, ${rgbToHex(accent1Rgb[0], accent1Rgb[1], accent1Rgb[2])} 0%, ${rgbToHex(accent2Rgb[0], accent2Rgb[1], accent2Rgb[2])} 100%)`,
-      textPrimary: '#FAF9F6',
-      textSecondary: 'hsl(40, 10%, 84%)',
-      textMuted: 'hsl(40, 8%, 64%)',
-      borderGlass: 'rgba(255, 255, 255, 0.08)',
-      borderGlassHover: 'rgba(255, 255, 255, 0.25)',
+      textPrimary: isMonochrome ? '#FFFFFF' : '#FAF9F6',
+      textSecondary: isMonochrome ? 'hsl(215, 12%, 85%)' : 'hsl(40, 10%, 84%)',
+      textMuted: isMonochrome ? 'hsl(215, 8%, 65%)' : 'hsl(40, 8%, 64%)',
+      borderGlass: 'rgba(255, 255, 255, 0.10)',
+      borderGlassHover: 'rgba(255, 255, 255, 0.30)',
       bookNavyDeep: rgbToHex(navyDeepRgb[0], navyDeepRgb[1], navyDeepRgb[2]),
       bookNavyMedium: rgbToHex(navyMediumRgb[0], navyMediumRgb[1], navyMediumRgb[2]),
       bookAccentNavy: `linear-gradient(135deg, ${rgbToHex(navyDeepRgb[0], navyDeepRgb[1], navyDeepRgb[2])}, ${rgbToHex(navyMediumRgb[0], navyMediumRgb[1], navyMediumRgb[2])})`,

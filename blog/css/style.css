@@ -3,10 +3,10 @@
    ========================================================================== */
 :root {
     /* Color Palette */
-    --navy-deep: hsl(210, 60%, 8%);
-    --navy-medium: #102A43;
-    --gold-dark: #B89742;
-    --gold-light: #E3C67C;
+    --navy-deep: #0D0F12;
+    --navy-medium: #1F242B;
+    --gold-dark: #A2B4C7;
+    --gold-light: #E1E9F0;
     --gold-gradient: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
     --accent-navy: linear-gradient(135deg, var(--navy-deep), var(--navy-medium));
 
@@ -15,8 +15,8 @@
     --cream-card: #FCFBFA;
     --desk-bg: transparent;
     /* Transparent background to reveal main page wallpaper */
-    --desk-accent: radial-gradient(circle, rgba(184, 151, 66, 0.15) 0%, rgba(15, 15, 22, 0) 70%);
-    /* Warm gold elegant ambient light */
+    --desk-accent: radial-gradient(circle, rgba(162, 180, 199, 0.16) 0%, rgba(14, 16, 20, 0) 70%);
+    /* Platinum architectural ambient light */
 
     /* Typography */
     --serif-font: 'Cormorant Garamond', serif;
@@ -44,7 +44,7 @@
 
 body {
     background-color: #0F0F16;
-    background-image: url('../../img/wal1.svg');
+    background-image: url('../../img/wal1.webp');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
