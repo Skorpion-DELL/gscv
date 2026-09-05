@@ -158,11 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetWidth = windowWidth - 80;
         const targetHeight = windowHeight - 80;
         
-        // Calculate the maximum scale factor that fits both width and height
-        let scale = Math.min(targetWidth / baseWidth, targetHeight / baseHeight);
+        // Calculate the maximum scale factor that fits both width and height, reduced by 25%
+        let scale = Math.min(targetWidth / baseWidth, targetHeight / baseHeight) * 0.75;
         
-        // Limit scale between 0.55 and 1.25 (to keep design premium and readable)
-        scale = Math.max(0.55, Math.min(1.25, scale));
+        // Limit scale between 0.41 and 0.95 (to keep design premium and readable)
+        scale = Math.max(0.41, Math.min(0.95, scale));
         
         wrapper.style.transform = `scale(${scale})`;
         wrapper.style.transformOrigin = 'center center';

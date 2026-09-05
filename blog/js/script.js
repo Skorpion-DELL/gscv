@@ -683,8 +683,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetWidth = windowWidth - 80;
         const targetHeight = windowHeight - 80;
         
-        let scale = Math.min(targetWidth / baseWidth, targetHeight / baseHeight);
-        scale = Math.max(0.55, Math.min(1.25, scale));
+        let scale = Math.min(targetWidth / baseWidth, targetHeight / baseHeight) * 0.75;
+        scale = Math.max(0.41, Math.min(0.95, scale));
         
         wrapper.style.transform = `scale(${scale})`;
         wrapper.style.transformOrigin = 'center center';
